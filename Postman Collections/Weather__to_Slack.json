@@ -1,0 +1,136 @@
+{
+  "variables": [],
+  "info": {
+    "name": "Weather  to Slack",
+    "_postman_id": "ddaaff72-434e-8f09-705c-63221300fe60",
+    "description": "Demo Collection for Postman Tutorials. \nTakes an address as input and posts the weather to the Postman Community Slack channel called \"community weather.\" \n\nUses an environment to hold api keys",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "57f30b35-f4e4-fb29-ead7-44730e45c4c8",
+      "name": "Get lat/long",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests['Status Code is 200'] = (responseCode.code === 200);",
+              "",
+              "if (responseCode.code === 200) {",
+              "    ",
+              "    try {",
+              "        var location_data = JSON.parse(responseBody),",
+              "            latlong = location_data.results[0].geometry.location.lat + \",\" + location_data.results[0].geometry.location.lng,",
+              "            formatted_address = location_data.results[0].formatted_address;",
+              "    }",
+              "",
+              "    catch(e) {",
+              "        console.log(e);",
+              "    }",
+              "    ",
+              "    postman.setGlobalVariable(\"latlong\", latlong);",
+              "    postman.setGlobalVariable(\"formatted_address\", formatted_address);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://maps.googleapis.com/maps/api/geocode/json?address=\"1 Infinite Loop, Cupertino, CA 95014\"&key={{googleapikey}}",
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "73b30070-99b7-6f2f-0207-48118abfa765",
+      "name": "Get Weather",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = (responseCode.code === 200);",
+              "",
+              "if (responseCode.code === 200) {",
+              "    ",
+              "    try {",
+              "        var result = JSON.parse(responseBody),",
+              "            temperature = result.currently.temperature,",
+              "            summary = result.currently.summary;",
+              "    }",
+              "    catch(e) {",
+              "        console.log(e);",
+              "    }",
+              "    ",
+              "    console.log(temperature);",
+              "   ",
+              "    postman.setGlobalVariable(\"summary\", summary);",
+              "    postman.setGlobalVariable(\"temp\", temperature);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://api.forecast.io/forecast/{{forecastapikey}}/{{latlong}}",
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "0c75a3e4-69b2-0ce4-7b22-de15e5d64ee4",
+      "name": "Post to Slack",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "var temp = Math.round(parseInt(globals.temp));",
+              "postman.setGlobalVariable(\"temp\", temp);",
+              "",
+              "var title = \"Checking in at ... \"+globals.formatted_address+\"\",",
+              "    body = \"The temperature is \"+globals.temp+\" °F\"+\" and it is \"+globals.summary;",
+              "    ",
+              "postman.setGlobalVariable(\"title\", title);",
+              "postman.setGlobalVariable(\"body\", body);",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://hooks.slack.com/services/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",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"Apple-HQ-weather\",\n  \"icon_emoji\": \":apple:\",\n  \n  \"attachments\": [\n        {\n            \"fallback\": \"{{title}}\",\n            \"title\": \"{{title}}\",\n            \"text\": \"{{body}}\",\n            \"color\": \"#7CD197\"\n        }\n    ]\n}\n\n"
+        },
+        "description": ""
+      },
+      "response": []
+    }
+  ]
+}
