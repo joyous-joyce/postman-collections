@@ -1,0 +1,109 @@
+{
+  "variables": [],
+  "info": {
+    "name": "Reddit to Slack",
+    "_postman_id": "6ad1b34f-f26e-d5ef-7d7a-d8d17f12244c",
+    "description": "1) GET request from Reddit to retrieve the first post\n2) POST request to Slack to display the first post\n\nDoes not require API authorization.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "f7c743f2-e345-0b3c-42b6-99aa8d2d5baf",
+      "name": "GET from reddit",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "",
+              "if (responseCode.code === 200) {",
+              "    ",
+              "    try {",
+              "        var result = JSON.parse(responseBody);",
+              "        var first = result.data.children[0];",
+              "        var redditAuthor = first.data.author;",
+              "        var redditTitle = first.data.title;",
+              "        var redditThumbnail = first.data.thumbnail;",
+              "        var redditLink = first.data.permalink;",
+              "        var redditSub =first.data.subreddit;",
+              "    }",
+              "    catch(e) {",
+              "        console.log(e);",
+              "    }",
+              "    ",
+              "    postman.setGlobalVariable(\"redditTitle\", redditTitle);",
+              "    postman.setGlobalVariable(\"redditThumbnail\", redditThumbnail);",
+              "    postman.setGlobalVariable(\"redditAuthor\", redditAuthor);",
+              "    postman.setGlobalVariable(\"redditLink\", redditLink);",
+              "    postman.setGlobalVariable(\"redditSub\", redditSub);",
+              "",
+              "}",
+              "",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://www.reddit.com/.json",
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "description": "Get the first post on Reddit and post it to Slack."
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "f7c1e704-4941-d7fe-a113-43815efb8b8c",
+      "name": "POST to slack",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "var body = \"posted by \" + globals.redditAuthor + \" in \" + globals.redditSub + \".\";",
+              "",
+              "var redditLink = \"https://www.reddit.com\" + globals.redditLink;",
+              "",
+              "postman.setGlobalVariable(\"redditBody\", body);",
+              "postman.setGlobalVariable(\"redditLink\", redditLink);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://hooks.slack.com/services/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",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"From Reddit\",\n  \"icon_emoji\": \":smirk_cat:\",\n  \n  \"attachments\": [\n        {\n            \"fallback\": \"{{redditTitle}}\",\n            \"title\": \"{{redditTitle}}\",\n            \"title_link\": \"{{redditLink}}\",\n            \"text\": \"{{redditBody}}\",\n            \"color\": \"#7CD197\",\n            \"thumb_url\": \"{{redditThumbnail}}\",\n            \"image_url\": \"{{redditLink}}\"\n        }\n    ]\n}"
+        },
+        "description": "Post reddit to slack via incoming webhook."
+      },
+      "response": []
+    }
+  ]
+}
