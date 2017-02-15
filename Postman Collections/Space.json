@@ -1,0 +1,142 @@
+{
+  "variables": [],
+  "info": {
+    "name": "Space",
+    "_postman_id": "db84bc44-e279-688f-6c21-820e3941040c",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "6b3c68de-22ed-e3ca-8ca6-c73287ca14a5",
+      "name": "Astronauts in space",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://api.open-notify.org/astros.json",
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "description": "See how many astronauts are in space right now.\n\nDoes not require authentication."
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "a3bed22b-d5bf-5364-c0de-04ab71f4d67b",
+      "name": "Astronomy Picture of the Day",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "",
+              "if (responseCode.code === 200) {",
+              "    ",
+              "    try {",
+              "        var result = JSON.parse(responseBody);",
+              "        var title = result.title;",
+              "        var explanation = result.explanation;",
+              "        var url = result.hdurl;",
+              "    }",
+              "    ",
+              "    catch(e) {",
+              "        console.log(e);",
+              "    }",
+              "    ",
+              "    postman.setGlobalVariable(\"spaceTitle\", title);",
+              "    postman.setGlobalVariable(\"spaceExplanation\", explanation);",
+              "    postman.setGlobalVariable(\"spaceUrl\", url);",
+              "",
+              "}",
+              "",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "description": "1) GET request for Astronomy Picture of the Day from NASA\n2) POST request to upload image to Imgur"
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "acd912f9-6ab9-85f5-e34f-0dcf0e8132ef",
+      "name": "POST image to imgur",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://api.imgur.com/3/image?image={{spaceUrl}}&title={{spaceTitle}}&description={{spaceExplanation}}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Client-ID 9cbdb08dc9da19f",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "description": "Upload image anonymously to Imgur"
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "92167a3c-0c1e-99cd-adff-bb3d81f0f08a",
+      "name": "POST to slack",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://hooks.slack.com/services/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",
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"Astronomy Picture of the Day\",\n  \"icon_emoji\": \":space_invader:\",\n  \n  \"attachments\": [\n        {\n            \"fallback\": \"{{spaceTitle}}\",\n            \"title\": \"{{spaceTitle}}\",\n            \"text\": \"{{spaceExplanation}}\",\n            \"color\": \"#7CD197\",\n            \"thumb_url\": \"{{spaceUrl}}\",\n            \"image_url\": \"{{spaceUrl}}\"\n        }\n    ]\n}"
+        },
+        "description": "POST Astronomy Picture of the Day to Slack"
+      },
+      "response": []
+    }
+  ]
+}
