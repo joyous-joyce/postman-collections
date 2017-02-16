@@ -111,32 +111,6 @@
         "description": "Upload image anonymously to Imgur"
       },
       "response": []
-    },
-    {
-      "_postman_id": "92167a3c-0c1e-99cd-adff-bb3d81f0f08a",
-      "name": "POST to slack",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "https://hooks.slack.com/services/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",
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"username\": \"Astronomy Picture of the Day\",\n  \"icon_emoji\": \":space_invader:\",\n  \n  \"attachments\": [\n        {\n            \"fallback\": \"{{spaceTitle}}\",\n            \"title\": \"{{spaceTitle}}\",\n            \"text\": \"{{spaceExplanation}}\",\n            \"color\": \"#7CD197\",\n            \"thumb_url\": \"{{spaceUrl}}\",\n            \"image_url\": \"{{spaceUrl}}\"\n        }\n    ]\n}"
-        },
-        "description": "POST Astronomy Picture of the Day to Slack"
-      },
-      "response": []
     }
   ]
 }
