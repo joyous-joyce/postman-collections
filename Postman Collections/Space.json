@@ -137,6 +137,53 @@
         "description": "POST Astronomy Picture of the Day to Slack"
       },
       "response": []
+    },
+    {
+      "_postman_id": "32e57b76-7ffb-cf22-205c-4caa0297e7cc",
+      "name": "Astronomy Picture of the Day copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "",
+              "if (responseCode.code === 200) {",
+              "    ",
+              "    try {",
+              "        var result = JSON.parse(responseBody);",
+              "        var title = result.title;",
+              "        var explanation = result.explanation;",
+              "        var url = result.hdurl;",
+              "    }",
+              "    ",
+              "    catch(e) {",
+              "        console.log(e);",
+              "    }",
+              "    ",
+              "    postman.setGlobalVariable(\"spaceTitle\", title);",
+              "    postman.setGlobalVariable(\"spaceExplanation\", explanation);",
+              "    postman.setGlobalVariable(\"spaceUrl\", url);",
+              "",
+              "}",
+              "",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "description": "1) GET request for Astronomy Picture of the Day from NASA\n2) POST request to upload image to Imgur"
+      },
+      "response": []
     }
   ]
 }
