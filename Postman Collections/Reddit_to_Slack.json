@@ -78,8 +78,8 @@
               "",
               "var redditLink = \"https://www.reddit.com\" + globals.redditLink;",
               "",
-              "postman.setGlobalVariable(\"redditBody\", body);",
-              "postman.setGlobalVariable(\"redditLink\", redditLink);"
+              "postman.setEnvironmentVariable(\"redditBody\", body);",
+              "postman.setEnvironmentVariable(\"redditLink\", redditLink);"
             ]
           }
         }
