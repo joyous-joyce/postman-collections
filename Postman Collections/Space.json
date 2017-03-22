@@ -1,7 +1,7 @@
 {
   "variables": [],
   "info": {
-    "name": "Space",
+    "name": "Space to Imgur",
     "_postman_id": "db84bc44-e279-688f-6c21-820e3941040c",
     "description": "",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
@@ -25,10 +25,7 @@
         "url": "http://api.open-notify.org/astros.json",
         "method": "GET",
         "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": []
-        },
+        "body": {},
         "description": "See how many astronauts are in space right now.\n\nDoes not require authentication."
       },
       "response": []
@@ -72,10 +69,7 @@
         "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
         "method": "GET",
         "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": []
-        },
+        "body": {},
         "description": "1) GET request for Astronomy Picture of the Day from NASA\n2) POST request to upload image to Imgur"
       },
       "response": []
@@ -104,10 +98,7 @@
             "description": ""
           }
         ],
-        "body": {
-          "mode": "formdata",
-          "formdata": []
-        },
+        "body": {},
         "description": "Upload image anonymously to Imgur"
       },
       "response": []
