@@ -8,29 +8,6 @@
   },
   "item": [
     {
-      "_postman_id": "6b3c68de-22ed-e3ca-8ca6-c73287ca14a5",
-      "name": "Astronauts in space",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "http://api.open-notify.org/astros.json",
-        "method": "GET",
-        "header": [],
-        "body": {},
-        "description": "See how many astronauts are in space right now.\n\nDoes not require authentication."
-      },
-      "response": []
-    },
-    {
       "_postman_id": "a3bed22b-d5bf-5364-c0de-04ab71f4d67b",
       "name": "Astronomy Picture of the Day",
       "event": [
