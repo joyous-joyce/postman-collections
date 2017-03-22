@@ -101,6 +101,54 @@
         "description": "Post reddit to slack via incoming webhook."
       },
       "response": []
+    },
+    {
+      "_postman_id": "24a4de91-86c2-edb7-09aa-2acce2e1821a",
+      "name": "GET from reddit copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "",
+              "if (responseCode.code === 200) {",
+              "    ",
+              "    try {",
+              "        var result = JSON.parse(responseBody);",
+              "        var first = result.data.children[0];",
+              "        var redditAuthor = first.data.author;",
+              "        var redditTitle = first.data.title;",
+              "        var redditThumbnail = first.data.thumbnail;",
+              "        var redditLink = first.data.permalink;",
+              "        var redditSub =first.data.subreddit;",
+              "    }",
+              "    catch(e) {",
+              "        console.log(e);",
+              "    }",
+              "    ",
+              "    postman.setEnvironmentVariable(\"redditTitle\", redditTitle);",
+              "    postman.setEnvironmentVariable(\"redditThumbnail\", redditThumbnail);",
+              "    postman.setEnvironmentVariable(\"redditAuthor\", redditAuthor);",
+              "    postman.setEnvironmentVariable(\"redditLink\", redditLink);",
+              "    postman.setEnvironmentVariable(\"redditSub\", redditSub);",
+              "",
+              "}",
+              "",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://www.reddit.com/.json",
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "description": "Get the first post on Reddit and post it to Slack."
+      },
+      "response": []
     }
   ]
 }
