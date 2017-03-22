@@ -33,11 +33,11 @@
               "        console.log(e);",
               "    }",
               "    ",
-              "    postman.setGlobalVariable(\"redditTitle\", redditTitle);",
-              "    postman.setGlobalVariable(\"redditThumbnail\", redditThumbnail);",
-              "    postman.setGlobalVariable(\"redditAuthor\", redditAuthor);",
-              "    postman.setGlobalVariable(\"redditLink\", redditLink);",
-              "    postman.setGlobalVariable(\"redditSub\", redditSub);",
+              "    postman.setEnvironmentVariable(\"redditTitle\", redditTitle);",
+              "    postman.setEnvironmentVariable(\"redditThumbnail\", redditThumbnail);",
+              "    postman.setEnvironmentVariable(\"redditAuthor\", redditAuthor);",
+              "    postman.setEnvironmentVariable(\"redditLink\", redditLink);",
+              "    postman.setEnvironmentVariable(\"redditSub\", redditSub);",
               "",
               "}",
               "",
@@ -50,10 +50,7 @@
         "url": "https://www.reddit.com/.json",
         "method": "GET",
         "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": []
-        },
+        "body": {},
         "description": "Get the first post on Reddit and post it to Slack."
       },
       "response": []
