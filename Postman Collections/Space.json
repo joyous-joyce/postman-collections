@@ -112,7 +112,7 @@
     },
     {
       "_postman_id": "7af771d1-4806-6cbe-aca9-468ae581d03d",
-      "name": "Upload image to Imgur via OAUTH",
+      "name": "Upload image to Imgur via OAuth 2.0",
       "event": [
         {
           "listen": "test",
