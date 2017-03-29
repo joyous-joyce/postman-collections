@@ -165,7 +165,7 @@
             }
           ]
         },
-        "description": ""
+        "description": "Upload an image to Imgur using your Imgur account credentials via Oauth 2.0."
       },
       "response": []
     },
