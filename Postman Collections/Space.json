@@ -106,7 +106,7 @@
             }
           ]
         },
-        "description": "Upload an image anonymously to Imgur."
+        "description": "Upload an image anonymously to Imgur\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints).\n\nWe will be using the [image upload endpoint](https://api.imgur.com/endpoints/image#image-upload) from Imgur.\n\n- In the request builder, select the `POST` method from the dropdown, and enter the `https://api.imgur.com/3/upload` endpoint in the URL bar.\n- Under the **Headers* tab, enter an `Authorization` key with the value of `Client-ID <your-client-id-from-imgur>`.\n- Under the **Body** tab, enter the body parameters that you would like to include in your image upload. For the `image` key, we will use a URL for an image as the value. We can access the environment variable that we created in the previous request within this collection, by using double curly brackets surrounding the environment variable name."
       },
       "response": []
     },
