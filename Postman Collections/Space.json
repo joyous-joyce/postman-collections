@@ -121,6 +121,8 @@
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
               "",
+              "// it might be useful to hang on to the photo's id on Imgur. We can do that by parsing the response object, and setting an environment variable to access in subsequent requests. ",
+              "",
               "if (responseCode.code === 200) {",
               "    ",
               "    try {",
