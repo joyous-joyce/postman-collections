@@ -153,6 +153,57 @@
         "description": ""
       },
       "response": []
+    },
+    {
+      "_postman_id": "cfa12e22-05e6-3400-e254-e2f5014b561c",
+      "name": "Upload image to Imgur via OAUTH copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://api.imgur.com/3/upload",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{accessToken}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "value": "{{spaceUrl}}",
+              "type": "text",
+              "enabled": true
+            },
+            {
+              "key": "title",
+              "value": "{{spaceTitle}}",
+              "type": "text",
+              "enabled": true
+            },
+            {
+              "key": "description",
+              "value": "{{spaceExplanation}}",
+              "type": "text",
+              "enabled": true
+            }
+          ]
+        },
+        "description": ""
+      },
+      "response": []
     }
   ]
 }
