@@ -185,7 +185,7 @@
         }
       ],
       "request": {
-        "url": "https://api.imgur.com/3/gallery/image",
+        "url": "https://api.imgur.com/3/gallery/image/{{imgurId}}",
         "method": "POST",
         "header": [
           {
@@ -197,12 +197,6 @@
         "body": {
           "mode": "formdata",
           "formdata": [
-            {
-              "key": "id",
-              "value": "{{imgurId}}",
-              "type": "text",
-              "enabled": true
-            },
             {
               "key": "title",
               "value": "{{spaceTitle}}",
