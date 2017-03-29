@@ -112,7 +112,22 @@
           "script": {
             "type": "text/javascript",
             "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "",
+              "if (responseCode.code === 200) {",
+              "    ",
+              "    try {",
+              "        var result = JSON.parse(responseBody);",
+              "        var id = result.data.id;",
+              "    }",
+              "    ",
+              "    catch(e) {",
+              "        console.log(e);",
+              "    }",
+              "    ",
+              "    postman.setEnvironmentVariable(\"imgurId\", id);",
+              "    ",
+              "}"
             ]
           }
         }
