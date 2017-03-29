@@ -100,6 +100,57 @@
         "description": ""
       },
       "response": []
+    },
+    {
+      "_postman_id": "7af771d1-4806-6cbe-aca9-468ae581d03d",
+      "name": "Upload image to Imgur via OAUTH",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://api.imgur.com/3/upload",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{accessToken}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "value": "{{spaceUrl}}",
+              "type": "text",
+              "enabled": true
+            },
+            {
+              "key": "title",
+              "value": "{{spaceTitle}}",
+              "type": "text",
+              "enabled": true
+            },
+            {
+              "key": "description",
+              "value": "{{spaceExplanation}}",
+              "type": "text",
+              "enabled": true
+            }
+          ]
+        },
+        "description": ""
+      },
+      "response": []
     }
   ]
 }
