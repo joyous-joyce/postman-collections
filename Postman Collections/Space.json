@@ -52,35 +52,6 @@
       "response": []
     },
     {
-      "_postman_id": "acd912f9-6ab9-85f5-e34f-0dcf0e8132ef",
-      "name": "POST image to imgur",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "https://api.imgur.com/3/image?image={{spaceUrl}}&title={{spaceTitle}}&description={{spaceExplanation}}",
-        "method": "POST",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Client-ID 9cbdb08dc9da19f",
-            "description": ""
-          }
-        ],
-        "body": {},
-        "description": "Upload image anonymously to Imgur"
-      },
-      "response": []
-    },
-    {
       "_postman_id": "64e36a2b-cea3-7d41-439b-0e9a8988f0f8",
       "name": "Upload image to Imgur",
       "event": [
