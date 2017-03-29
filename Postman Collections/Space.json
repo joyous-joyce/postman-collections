@@ -214,7 +214,7 @@
             }
           ]
         },
-        "description": "Share an image (already uploaded to Imgur) with the Imgur community."
+        "description": "Share an image with the Imgur community via OAuth 2.0.\n==="
       },
       "response": []
     }
