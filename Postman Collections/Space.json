@@ -37,7 +37,7 @@
               "",
               "}",
               "",
-              "// postman.setNextRequest(\"Upload image to Imgur via OAUTH\");",
+              "postman.setNextRequest(\"Upload image to Imgur via OAUTH\");",
               ""
             ]
           }
