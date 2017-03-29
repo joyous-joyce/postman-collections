@@ -52,7 +52,7 @@
     },
     {
       "_postman_id": "64e36a2b-cea3-7d41-439b-0e9a8988f0f8",
-      "name": "Upload image to Imgur",
+      "name": "Upload image to Imgur ANON",
       "event": [
         {
           "listen": "test",
