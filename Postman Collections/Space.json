@@ -55,7 +55,7 @@
         "method": "GET",
         "header": [],
         "body": {},
-        "description": "GET request for Astronomy Picture of the Day from NASA\n\nSending this request will return a new picture posted by NASA every day. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nUnder the Postman **Tests** tab, the first test ensures a successful 200 response status code.  The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run."
+        "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nUnder the Postman **Tests** tab, the first test ensures a successful 200 response status code.  The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run."
       },
       "response": []
     },
