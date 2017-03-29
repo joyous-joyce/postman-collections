@@ -178,13 +178,14 @@
           "script": {
             "type": "text/javascript",
             "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;"
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              ""
             ]
           }
         }
       ],
       "request": {
-        "url": "https://api.imgur.com/3/upload",
+        "url": "https://api.imgur.com/3/gallery/image",
         "method": "POST",
         "header": [
           {
@@ -197,20 +198,14 @@
           "mode": "formdata",
           "formdata": [
             {
-              "key": "image",
-              "value": "{{spaceUrl}}",
+              "key": "id",
+              "value": "{{imgurId}}",
               "type": "text",
               "enabled": true
             },
             {
               "key": "title",
               "value": "{{spaceTitle}}",
-              "type": "text",
-              "enabled": true
-            },
-            {
-              "key": "description",
-              "value": "{{spaceExplanation}}",
               "type": "text",
               "enabled": true
             }
