@@ -171,7 +171,7 @@
     },
     {
       "_postman_id": "cfa12e22-05e6-3400-e254-e2f5014b561c",
-      "name": "Share image with Imgur gallery",
+      "name": "Share image with Imgur community",
       "event": [
         {
           "listen": "test",
