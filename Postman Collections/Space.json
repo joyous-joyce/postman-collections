@@ -16,11 +16,16 @@
           "script": {
             "type": "text/javascript",
             "exec": [
+              "// tests are a good way to ensure you're getting the correct, anticipated responses from your requests.  Click on the snippets to the right for starter code for commonly used tests. Any modifications or custom scripts can be written in Javascript.",
+              "",
+              "// this first test ensures a successful 200 response status code",
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
               "",
+              "// this second block of code will parse the response object and set environment variables",
               "if (responseCode.code === 200) {",
               "    ",
               "    try {",
+              "        // parse the JSON response object to access title, explanation, and hdurl",
               "        var result = JSON.parse(responseBody);",
               "        var title = result.title;",
               "        var explanation = result.explanation;",
@@ -31,12 +36,14 @@
               "        console.log(e);",
               "    }",
               "    ",
+              "    // the setEnvironmentVariable() method accepts a variable name and value as parameters. Use this method to establish environment variables that can be accessed in subsequent requests when the entire collection is run along with the corresponding environment template.",
               "    postman.setEnvironmentVariable(\"spaceTitle\", title);",
               "    postman.setEnvironmentVariable(\"spaceExplanation\", explanation);",
               "    postman.setEnvironmentVariable(\"spaceUrl\", url);",
               "",
               "}",
               "",
+              "// the setNextRequest() method accepts a request name within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of the next request in the list.",
               "postman.setNextRequest(\"Upload image to Imgur via OAUTH\");",
               ""
             ]
