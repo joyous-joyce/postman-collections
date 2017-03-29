@@ -214,7 +214,7 @@
             }
           ]
         },
-        "description": "Share an image with the Imgur community via OAuth 2.0.\n==="
+        "description": "Share an image with the Imgur community via OAuth 2.0.\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints). If you don't already have one, create an Imgur account, and register an application.\n\nWe will be using the [share with community endpoint](https://api.imgur.com/endpoints/gallery#to-gallery) from Imgur.\n\n- In the Postman request builder, select the `POST` method from the dropdown, and enter the `https://api.imgur.com/3/gallery/image/{{imgurId}}` endpoint in the URL bar, where `imgurId` is the name of your new environment variable created from the response object when you uploaded the photo to Imgur. Once again, we can access the environment variable that we created in the previous request within this collection, by using double curly brackets surrounding the environment variable name (e.g. `{{imgurId}}`).\n- Under the Postman **Headers* tab, we will use the same `{{accessToken}}` that we used in the preceding OAuth 2.0 request.\n- Under the Postman **Body** tab, enter the body parameters that you would like to include in your image upload. For the `title` key, we will use an environment variable created from the response object when you retrieved the initial photo from NASA."
       },
       "response": []
     }
