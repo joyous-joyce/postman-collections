@@ -16,7 +16,7 @@
           "script": {
             "type": "text/javascript",
             "exec": [
-              "// tests are a good way to ensure you're getting the correct, anticipated responses from your requests.  Click on the snippets to the right for starter code for commonly used tests. Any modifications or custom scripts can be written in Javascript.",
+              "// for commonly used tests, click on the snippets to the right for starter code. Any modifications or custom scripts can be written in Javascript.",
               "",
               "// this first test ensures a successful 200 response status code",
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
