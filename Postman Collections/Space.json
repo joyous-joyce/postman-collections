@@ -36,6 +36,8 @@
               "    postman.setEnvironmentVariable(\"spaceUrl\", url);",
               "",
               "}",
+              "",
+              "// postman.setNextRequest(\"Upload image to Imgur via OAUTH\");",
               ""
             ]
           }
