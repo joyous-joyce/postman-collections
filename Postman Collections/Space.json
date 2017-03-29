@@ -31,12 +31,11 @@
               "        console.log(e);",
               "    }",
               "    ",
-              "    postman.setGlobalVariable(\"spaceTitle\", title);",
-              "    postman.setGlobalVariable(\"spaceExplanation\", explanation);",
-              "    postman.setGlobalVariable(\"spaceUrl\", url);",
+              "    postman.setEnvironmentVariable(\"spaceTitle\", title);",
+              "    postman.setEnvironmentVariable(\"spaceExplanation\", explanation);",
+              "    postman.setEnvironmentVariable(\"spaceUrl\", url);",
               "",
               "}",
-              "",
               ""
             ]
           }
