@@ -3,7 +3,7 @@
   "info": {
     "name": "Space to Imgur",
     "_postman_id": "db84bc44-e279-688f-6c21-820e3941040c",
-    "description": "",
+    "description": "Retrieve the Astronomy Pic of the Day from NASA, and post the image anonymously or via OAUTH 2.0 to Imgur.",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
