@@ -205,7 +205,7 @@
             }
           ]
         },
-        "description": ""
+        "description": "Share an image (already uploaded to Imgur) with the Imgur community."
       },
       "response": []
     }
