@@ -48,7 +48,7 @@
         "method": "GET",
         "header": [],
         "body": {},
-        "description": "1) GET request for Astronomy Picture of the Day from NASA\n2) POST request to upload image to Imgur"
+        "description": "GET request for Astronomy Picture of the Day from NASA"
       },
       "response": []
     },
