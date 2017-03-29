@@ -156,7 +156,7 @@
     },
     {
       "_postman_id": "cfa12e22-05e6-3400-e254-e2f5014b561c",
-      "name": "Upload image to Imgur via OAUTH copy",
+      "name": "Share image with Imgur gallery",
       "event": [
         {
           "listen": "test",
