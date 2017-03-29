@@ -99,7 +99,7 @@
             }
           ]
         },
-        "description": ""
+        "description": "Upload an image anonymously to Imgur."
       },
       "response": []
     },
