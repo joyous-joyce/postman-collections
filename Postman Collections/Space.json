@@ -8,6 +8,12 @@
   },
   "item": [
     {
+      "_postman_id": "504696c0-d215-347e-f514-d98504c55be8",
+      "name": "Space to Slack",
+      "description": "Get an image from NASA's APOD API, and use an incoming webhook to post it to Slack.",
+      "item": []
+    },
+    {
       "_postman_id": "a3bed22b-d5bf-5364-c0de-04ab71f4d67b",
       "name": "Astronomy Picture of the Day",
       "event": [
