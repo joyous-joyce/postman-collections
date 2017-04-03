@@ -3,7 +3,7 @@
   "info": {
     "name": "Space to Imgur",
     "_postman_id": "db84bc44-e279-688f-6c21-820e3941040c",
-    "description": "Retrieve the Astronomy Pic of the Day from NASA, and post the image anonymously or via OAUTH 2.0 to Imgur.",
+    "description": "Retrieve the Astronomy Pic of the Day from NASA, and post the image anonymously or via OAUTH 2.0 to Imgur.\n\n:bowtie:",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -63,7 +63,88 @@
         "body": {},
         "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run."
       },
-      "response": []
+      "response": [
+        {
+          "id": "b7349259-7d18-e0bc-8752-244737fdfad9",
+          "name": "200",
+          "originalRequest": {
+            "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run."
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "text",
+          "header": [
+            {
+              "key": "Age",
+              "value": "0",
+              "name": "Age",
+              "description": ""
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "name": "Connection",
+              "description": ""
+            },
+            {
+              "key": "Content-Length",
+              "value": "949",
+              "name": "Content-Length",
+              "description": ""
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "name": "Content-Type",
+              "description": ""
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 31 Mar 2017 22:55:44 GMT",
+              "name": "Date",
+              "description": ""
+            },
+            {
+              "key": "Server",
+              "value": "openresty",
+              "name": "Server",
+              "description": ""
+            },
+            {
+              "key": "Via",
+              "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+              "name": "Via",
+              "description": ""
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "name": "X-Cache",
+              "description": ""
+            },
+            {
+              "key": "X-RateLimit-Limit",
+              "value": "40",
+              "name": "X-RateLimit-Limit",
+              "description": ""
+            },
+            {
+              "key": "X-RateLimit-Remaining",
+              "value": "38",
+              "name": "X-RateLimit-Remaining",
+              "description": ""
+            }
+          ],
+          "cookie": [],
+          "responseTime": "175",
+          "body": "{\n  \"date\": \"2017-03-31\",\n  \"explanation\": \"Get out your red/cyan glasses and gaze across the surface of Churyumov-Gerasimenko, aka Comet 67P. The stereo anaglyph was created by combining two images from the Rosetta spacecraft's narrow angle OSIRIS camera taken on September 22, 2014. Stark and jagged, the 3D landscape is found along the Seth region of the comet's double-lobed nucleus. It spans about 985 x 820 meters, pocked by circular ridges, depressions, and flattened areas strewn with boulders and debris. The large steep-walled circular pit in the foreground is 180 meters in diameter. Rosetta's mission to the comet ended in September 2016 when the spacecraft was commanded to a controlled impact with the comet's surface.\",\n  \"hdurl\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"3D 67P\",\n  \"url\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth1024c.jpg\"\n}"
+        }
+      ]
     },
     {
       "_postman_id": "64e36a2b-cea3-7d41-439b-0e9a8988f0f8",
