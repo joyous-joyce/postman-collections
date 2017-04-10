@@ -182,7 +182,7 @@
     {
       "_postman_id": "7e9557b7-ff9b-3e9f-7447-9d9c8258660d",
       "name": "Space to Imgur Gallery",
-      "description": "",
+      "description": "Post the picture and share with the Imgur gallery under your account.",
       "item": [
         {
           "_postman_id": "183c8f4c-9828-4478-841a-1676225a5462",
