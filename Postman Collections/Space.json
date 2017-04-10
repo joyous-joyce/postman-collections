@@ -11,141 +11,7 @@
       "_postman_id": "504696c0-d215-347e-f514-d98504c55be8",
       "name": "Space to Slack",
       "description": "Get an image from NASA's APOD API, and use an incoming webhook to post it to Slack.",
-      "item": [
-        {
-          "_postman_id": "a3bed22b-d5bf-5364-c0de-04ab71f4d67b",
-          "name": "Astronomy Picture of the Day",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "// for commonly used tests, click on the snippets to the right for starter code. Any modifications or custom scripts can be written in Javascript.",
-                  "",
-                  "// this first test ensures a successful 200 response status code",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "// this second block of code will parse the response object and set environment variables",
-                  "if (responseCode.code === 200) {",
-                  "    ",
-                  "    try {",
-                  "        // parse the JSON response object to access title, explanation, and hdurl",
-                  "        var result = JSON.parse(responseBody);",
-                  "        var title = result.title;",
-                  "        var explanation = result.explanation;",
-                  "        var url = result.hdurl;",
-                  "    }",
-                  "    ",
-                  "    catch(e) {",
-                  "        console.log(e);",
-                  "    }",
-                  "    ",
-                  "    // the setEnvironmentVariable() method accepts a variable name and value as parameters. Use this method to establish environment variables that can be accessed in subsequent requests when the entire collection is run along with the corresponding environment template.",
-                  "    postman.setEnvironmentVariable(\"spaceTitle\", title);",
-                  "    postman.setEnvironmentVariable(\"spaceExplanation\", explanation);",
-                  "    postman.setEnvironmentVariable(\"spaceUrl\", url);",
-                  "",
-                  "}",
-                  "",
-                  "// the setNextRequest() method accepts a request name within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of the next request in the list.",
-                  "postman.setNextRequest(\"Upload image to Imgur via OAuth 2.0\");",
-                  ""
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
-            "method": "GET",
-            "header": [],
-            "body": {},
-            "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run."
-          },
-          "response": [
-            {
-              "id": "b7349259-7d18-e0bc-8752-244737fdfad9",
-              "name": "200",
-              "originalRequest": {
-                "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
-                "method": "GET",
-                "header": [],
-                "body": {},
-                "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run."
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "_postman_previewtype": "text",
-              "header": [
-                {
-                  "key": "Age",
-                  "value": "0",
-                  "name": "Age",
-                  "description": ""
-                },
-                {
-                  "key": "Connection",
-                  "value": "keep-alive",
-                  "name": "Connection",
-                  "description": ""
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "949",
-                  "name": "Content-Length",
-                  "description": ""
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "name": "Content-Type",
-                  "description": ""
-                },
-                {
-                  "key": "Date",
-                  "value": "Fri, 31 Mar 2017 22:55:44 GMT",
-                  "name": "Date",
-                  "description": ""
-                },
-                {
-                  "key": "Server",
-                  "value": "openresty",
-                  "name": "Server",
-                  "description": ""
-                },
-                {
-                  "key": "Via",
-                  "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
-                  "name": "Via",
-                  "description": ""
-                },
-                {
-                  "key": "X-Cache",
-                  "value": "MISS",
-                  "name": "X-Cache",
-                  "description": ""
-                },
-                {
-                  "key": "X-RateLimit-Limit",
-                  "value": "40",
-                  "name": "X-RateLimit-Limit",
-                  "description": ""
-                },
-                {
-                  "key": "X-RateLimit-Remaining",
-                  "value": "38",
-                  "name": "X-RateLimit-Remaining",
-                  "description": ""
-                }
-              ],
-              "cookie": [],
-              "responseTime": "175",
-              "body": "{\n  \"date\": \"2017-03-31\",\n  \"explanation\": \"Get out your red/cyan glasses and gaze across the surface of Churyumov-Gerasimenko, aka Comet 67P. The stereo anaglyph was created by combining two images from the Rosetta spacecraft's narrow angle OSIRIS camera taken on September 22, 2014. Stark and jagged, the 3D landscape is found along the Seth region of the comet's double-lobed nucleus. It spans about 985 x 820 meters, pocked by circular ridges, depressions, and flattened areas strewn with boulders and debris. The large steep-walled circular pit in the foreground is 180 meters in diameter. Rosetta's mission to the comet ended in September 2016 when the spacecraft was commanded to a controlled impact with the comet's surface.\",\n  \"hdurl\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"3D 67P\",\n  \"url\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth1024c.jpg\"\n}"
-            }
-          ]
-        }
-      ]
+      "item": []
     },
     {
       "_postman_id": "7e9557b7-ff9b-3e9f-7447-9d9c8258660d",
@@ -532,63 +398,196 @@
               "body": "{\n  \"date\": \"2017-03-31\",\n  \"explanation\": \"Get out your red/cyan glasses and gaze across the surface of Churyumov-Gerasimenko, aka Comet 67P. The stereo anaglyph was created by combining two images from the Rosetta spacecraft's narrow angle OSIRIS camera taken on September 22, 2014. Stark and jagged, the 3D landscape is found along the Seth region of the comet's double-lobed nucleus. It spans about 985 x 820 meters, pocked by circular ridges, depressions, and flattened areas strewn with boulders and debris. The large steep-walled circular pit in the foreground is 180 meters in diameter. Rosetta's mission to the comet ended in September 2016 when the spacecraft was commanded to a controlled impact with the comet's surface.\",\n  \"hdurl\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"3D 67P\",\n  \"url\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth1024c.jpg\"\n}"
             }
           ]
-        },
-        {
-          "_postman_id": "64e36a2b-cea3-7d41-439b-0e9a8988f0f8",
-          "name": "Upload image to Imgur ANON",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "if (responsecode.code === 200) {",
-                  "    postman.setNextRequest(null);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "https://api.imgur.com/3/upload",
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Client-ID 9cbdb08dc9da19f",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "image",
-                  "value": "{{spaceUrl}}",
-                  "type": "text",
-                  "enabled": true
-                },
-                {
-                  "key": "title",
-                  "value": "{{spaceTitle}}",
-                  "type": "text",
-                  "enabled": true
-                },
-                {
-                  "key": "description",
-                  "value": "{{spaceExplanation}}",
-                  "type": "text",
-                  "enabled": true
-                }
-              ]
-            },
-            "description": "Upload an image anonymously to Imgur\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints). If you don't already have one, create an Imgur account, and register an application.\n\nWe will be using the [image upload endpoint](https://api.imgur.com/endpoints/image#image-upload) from Imgur.\n\n- In the Postman request builder, select the `POST` method from the dropdown, and enter the `https://api.imgur.com/3/upload` endpoint in the URL bar.\n- Under the Postman **Headers* tab, enter an `Authorization` key with the value of `Client-ID <your-client-id-from-imgur>`.\n- Under the Postman **Body** tab, enter the body parameters that you would like to include in your image upload. For the `image` key, we will use a URL for an image as the value. We can access the environment variable that we created in the previous request within this collection, by using double curly brackets surrounding the environment variable name (e.g. `{{spaceUrl}}`)."
-          },
-          "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "a3bed22b-d5bf-5364-c0de-04ab71f4d67b",
+      "name": "Astronomy Picture of the Day",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// for commonly used tests, click on the snippets to the right for starter code. Any modifications or custom scripts can be written in Javascript.",
+              "",
+              "// this first test ensures a successful 200 response status code",
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "",
+              "// this second block of code will parse the response object and set environment variables",
+              "if (responseCode.code === 200) {",
+              "    ",
+              "    try {",
+              "        // parse the JSON response object to access title, explanation, and hdurl",
+              "        var result = JSON.parse(responseBody);",
+              "        var title = result.title;",
+              "        var explanation = result.explanation;",
+              "        var url = result.hdurl;",
+              "    }",
+              "    ",
+              "    catch(e) {",
+              "        console.log(e);",
+              "    }",
+              "    ",
+              "    // the setEnvironmentVariable() method accepts a variable name and value as parameters. Use this method to establish environment variables that can be accessed in subsequent requests when the entire collection is run along with the corresponding environment template.",
+              "    postman.setEnvironmentVariable(\"spaceTitle\", title);",
+              "    postman.setEnvironmentVariable(\"spaceExplanation\", explanation);",
+              "    postman.setEnvironmentVariable(\"spaceUrl\", url);",
+              "",
+              "}",
+              "",
+              "// the setNextRequest() method accepts a request name within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of the next request in the list.",
+              "postman.setNextRequest(\"Upload image to Imgur via OAuth 2.0\");",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run."
+      },
+      "response": [
+        {
+          "id": "b7349259-7d18-e0bc-8752-244737fdfad9",
+          "name": "200",
+          "originalRequest": {
+            "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run."
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "text",
+          "header": [
+            {
+              "key": "Age",
+              "value": "0",
+              "name": "Age",
+              "description": ""
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "name": "Connection",
+              "description": ""
+            },
+            {
+              "key": "Content-Length",
+              "value": "949",
+              "name": "Content-Length",
+              "description": ""
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "name": "Content-Type",
+              "description": ""
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 31 Mar 2017 22:55:44 GMT",
+              "name": "Date",
+              "description": ""
+            },
+            {
+              "key": "Server",
+              "value": "openresty",
+              "name": "Server",
+              "description": ""
+            },
+            {
+              "key": "Via",
+              "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+              "name": "Via",
+              "description": ""
+            },
+            {
+              "key": "X-Cache",
+              "value": "MISS",
+              "name": "X-Cache",
+              "description": ""
+            },
+            {
+              "key": "X-RateLimit-Limit",
+              "value": "40",
+              "name": "X-RateLimit-Limit",
+              "description": ""
+            },
+            {
+              "key": "X-RateLimit-Remaining",
+              "value": "38",
+              "name": "X-RateLimit-Remaining",
+              "description": ""
+            }
+          ],
+          "cookie": [],
+          "responseTime": "175",
+          "body": "{\n  \"date\": \"2017-03-31\",\n  \"explanation\": \"Get out your red/cyan glasses and gaze across the surface of Churyumov-Gerasimenko, aka Comet 67P. The stereo anaglyph was created by combining two images from the Rosetta spacecraft's narrow angle OSIRIS camera taken on September 22, 2014. Stark and jagged, the 3D landscape is found along the Seth region of the comet's double-lobed nucleus. It spans about 985 x 820 meters, pocked by circular ridges, depressions, and flattened areas strewn with boulders and debris. The large steep-walled circular pit in the foreground is 180 meters in diameter. Rosetta's mission to the comet ended in September 2016 when the spacecraft was commanded to a controlled impact with the comet's surface.\",\n  \"hdurl\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"3D 67P\",\n  \"url\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth1024c.jpg\"\n}"
+        }
+      ]
+    },
+    {
+      "_postman_id": "64e36a2b-cea3-7d41-439b-0e9a8988f0f8",
+      "name": "Upload image to Imgur ANON",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "",
+              "if (responsecode.code === 200) {",
+              "    postman.setNextRequest(null);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://api.imgur.com/3/upload",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Client-ID 9cbdb08dc9da19f",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "value": "{{spaceUrl}}",
+              "type": "text",
+              "enabled": true
+            },
+            {
+              "key": "title",
+              "value": "{{spaceTitle}}",
+              "type": "text",
+              "enabled": true
+            },
+            {
+              "key": "description",
+              "value": "{{spaceExplanation}}",
+              "type": "text",
+              "enabled": true
+            }
+          ]
+        },
+        "description": "Upload an image anonymously to Imgur\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints). If you don't already have one, create an Imgur account, and register an application.\n\nWe will be using the [image upload endpoint](https://api.imgur.com/endpoints/image#image-upload) from Imgur.\n\n- In the Postman request builder, select the `POST` method from the dropdown, and enter the `https://api.imgur.com/3/upload` endpoint in the URL bar.\n- Under the Postman **Headers* tab, enter an `Authorization` key with the value of `Client-ID <your-client-id-from-imgur>`.\n- Under the Postman **Body** tab, enter the body parameters that you would like to include in your image upload. For the `image` key, we will use a URL for an image as the value. We can access the environment variable that we created in the previous request within this collection, by using double curly brackets surrounding the environment variable name (e.g. `{{spaceUrl}}`)."
+      },
+      "response": []
     }
   ]
 }
