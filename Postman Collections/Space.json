@@ -441,7 +441,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "// for commonly used tests, click on the snippets to the right for starter code. Any modifications or custom scripts can be written in Javascript.",
+                  "// for commonly used tests, click on the snippets to the right for starter code. Any modifications or custom scripts can be written in JavaScript.",
                   "",
                   "// this first test ensures a successful 200 response status code",
                   "tests[\"Status code is 200\"] = responseCode.code === 200;",
