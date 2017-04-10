@@ -150,74 +150,6 @@
               "body": "{\n  \"date\": \"2017-03-31\",\n  \"explanation\": \"Get out your red/cyan glasses and gaze across the surface of Churyumov-Gerasimenko, aka Comet 67P. The stereo anaglyph was created by combining two images from the Rosetta spacecraft's narrow angle OSIRIS camera taken on September 22, 2014. Stark and jagged, the 3D landscape is found along the Seth region of the comet's double-lobed nucleus. It spans about 985 x 820 meters, pocked by circular ridges, depressions, and flattened areas strewn with boulders and debris. The large steep-walled circular pit in the foreground is 180 meters in diameter. Rosetta's mission to the comet ended in September 2016 when the spacecraft was commanded to a controlled impact with the comet's surface.\",\n  \"hdurl\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"3D 67P\",\n  \"url\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth1024c.jpg\"\n}"
             }
           ]
-        },
-        {
-          "_postman_id": "7af771d1-4806-6cbe-aca9-468ae581d03d",
-          "name": "Upload image to Imgur via OAuth 2.0",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "// it might be useful to hang on to the photo's id on Imgur. We can do that by parsing the response object, and setting an environment variable to access in subsequent requests. ",
-                  "",
-                  "if (responseCode.code === 200) {",
-                  "    ",
-                  "    try {",
-                  "        var result = JSON.parse(responseBody);",
-                  "        var id = result.data.id;",
-                  "    }",
-                  "    ",
-                  "    catch(e) {",
-                  "        console.log(e);",
-                  "    }",
-                  "    ",
-                  "    postman.setEnvironmentVariable(\"imgurId\", id);",
-                  "    ",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "https://api.imgur.com/3/upload",
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{accessToken}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "image",
-                  "value": "{{spaceUrl}}",
-                  "type": "text",
-                  "enabled": true
-                },
-                {
-                  "key": "title",
-                  "value": "{{spaceTitle}}",
-                  "type": "text",
-                  "enabled": true
-                },
-                {
-                  "key": "description",
-                  "value": "{{spaceExplanation}} ....... beep boop .... Here's the Astronomy picture of the day from NASA, posted using Postman: https://documenter.getpostman.com/view/1559979/space-to-imgur/6YsWHS2",
-                  "type": "text",
-                  "enabled": true
-                }
-              ]
-            },
-            "description": "Upload an image under your Imgur account via OAuth 2.0\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints). If you don't already have one, create an Imgur account, and register an application.\n\nThis is essentially the same request as the previous one to upload an image anonymously to Imgur, except we will authorize our request using an Oauth 2.0 access token.\n\nUnder the Postman **Authorization** tab, select `OAuth 2.0` from the dropdown. Click the `Get New Access Token` button to request your token.\n- Token Name: <any-token-name-that-you-want>\n- Auth URL: `https://api.imgur.com/oauth2/authorize`\n- Access Token URL: `https://api.imgur.com/oauth2/token`\n- Client ID: <your-app's-client-ID-from-Imgur>\n- Client Secret: <generate-new-secret-for-your-app-from-Imgur>\n- Grant Type: `Authorization Code`\n\nStill under the Postman **Authorization** tab, select your new token's name and verify `Add token to` is set to `Header`. Copy the `access_token` value and save it as a new environment variable (e.g. `accessToken`) by clicking the eyeball in the upper right corner of the Postman app.\n\nNote: if you share your Postman environment template with another person, they will have access to your `access_token` unless create a shareable environment template stripped of the `access_token` value.\n\nUnder the Postman **Headers** tab, replace the `Authorization` value with `Bearer {{<your-environment-variable-name>}}`.\n\nLastly, if I want to do some other things with this uploaded image, it might be useful for me to hold on to the photo's id on Imgur. Do you remember how to do that? Check out the comments under the Postman **Tests** tab for a hint."
-          },
-          "response": []
         }
       ]
     },
@@ -546,6 +478,74 @@
           ]
         },
         "description": "Upload an image anonymously to Imgur\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints). If you don't already have one, create an Imgur account, and register an application.\n\nWe will be using the [image upload endpoint](https://api.imgur.com/endpoints/image#image-upload) from Imgur.\n\n- In the Postman request builder, select the `POST` method from the dropdown, and enter the `https://api.imgur.com/3/upload` endpoint in the URL bar.\n- Under the Postman **Headers* tab, enter an `Authorization` key with the value of `Client-ID <your-client-id-from-imgur>`.\n- Under the Postman **Body** tab, enter the body parameters that you would like to include in your image upload. For the `image` key, we will use a URL for an image as the value. We can access the environment variable that we created in the previous request within this collection, by using double curly brackets surrounding the environment variable name (e.g. `{{spaceUrl}}`)."
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "7af771d1-4806-6cbe-aca9-468ae581d03d",
+      "name": "Upload image to Imgur via OAuth 2.0",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "",
+              "// it might be useful to hang on to the photo's id on Imgur. We can do that by parsing the response object, and setting an environment variable to access in subsequent requests. ",
+              "",
+              "if (responseCode.code === 200) {",
+              "    ",
+              "    try {",
+              "        var result = JSON.parse(responseBody);",
+              "        var id = result.data.id;",
+              "    }",
+              "    ",
+              "    catch(e) {",
+              "        console.log(e);",
+              "    }",
+              "    ",
+              "    postman.setEnvironmentVariable(\"imgurId\", id);",
+              "    ",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://api.imgur.com/3/upload",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{accessToken}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "value": "{{spaceUrl}}",
+              "type": "text",
+              "enabled": true
+            },
+            {
+              "key": "title",
+              "value": "{{spaceTitle}}",
+              "type": "text",
+              "enabled": true
+            },
+            {
+              "key": "description",
+              "value": "{{spaceExplanation}} ....... beep boop .... Here's the Astronomy picture of the day from NASA, posted using Postman: https://documenter.getpostman.com/view/1559979/space-to-imgur/6YsWHS2",
+              "type": "text",
+              "enabled": true
+            }
+          ]
+        },
+        "description": "Upload an image under your Imgur account via OAuth 2.0\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints). If you don't already have one, create an Imgur account, and register an application.\n\nThis is essentially the same request as the previous one to upload an image anonymously to Imgur, except we will authorize our request using an Oauth 2.0 access token.\n\nUnder the Postman **Authorization** tab, select `OAuth 2.0` from the dropdown. Click the `Get New Access Token` button to request your token.\n- Token Name: <any-token-name-that-you-want>\n- Auth URL: `https://api.imgur.com/oauth2/authorize`\n- Access Token URL: `https://api.imgur.com/oauth2/token`\n- Client ID: <your-app's-client-ID-from-Imgur>\n- Client Secret: <generate-new-secret-for-your-app-from-Imgur>\n- Grant Type: `Authorization Code`\n\nStill under the Postman **Authorization** tab, select your new token's name and verify `Add token to` is set to `Header`. Copy the `access_token` value and save it as a new environment variable (e.g. `accessToken`) by clicking the eyeball in the upper right corner of the Postman app.\n\nNote: if you share your Postman environment template with another person, they will have access to your `access_token` unless create a shareable environment template stripped of the `access_token` value.\n\nUnder the Postman **Headers** tab, replace the `Authorization` value with `Bearer {{<your-environment-variable-name>}}`.\n\nLastly, if I want to do some other things with this uploaded image, it might be useful for me to hold on to the photo's id on Imgur. Do you remember how to do that? Check out the comments under the Postman **Tests** tab for a hint."
       },
       "response": []
     },
