@@ -1,7 +1,7 @@
 {
   "variables": [],
   "info": {
-    "name": "Space to Imgur",
+    "name": "Space Collection",
     "_postman_id": "db84bc44-e279-688f-6c21-820e3941040c",
     "description": "Super Cool Space Collection\n===\n\nRetrieve the **Astronomy Pic of the Day from NASA**, and post the image anonymously or via OAUTH 2.0 to Imgur.\n\n- GET request for APOD from NASA\n- POST request image to Imgur\n- POST request image to Image account",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
