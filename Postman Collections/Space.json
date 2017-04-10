@@ -21,7 +21,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "// for commonly used tests, click on the snippets to the right for starter code. Any modifications or custom scripts can be written in Javascript.",
+                  "// for commonly used tests, click on the snippets to the right for starter code. Any modifications or custom scripts can be written in JavaScript.",
                   "",
                   "// this first test ensures a successful 200 response status code",
                   "tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -49,7 +49,7 @@
                   "}",
                   "",
                   "// the setNextRequest() method accepts a request name within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of the next request in the list.",
-                  "postman.setNextRequest(\"Upload image to Imgur via OAuth 2.0\");",
+                  "postman.setNextRequest(\"Message to slack\");",
                   ""
                 ]
               }
