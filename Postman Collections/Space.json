@@ -144,6 +144,38 @@
               "body": "{\n  \"date\": \"2017-03-31\",\n  \"explanation\": \"Get out your red/cyan glasses and gaze across the surface of Churyumov-Gerasimenko, aka Comet 67P. The stereo anaglyph was created by combining two images from the Rosetta spacecraft's narrow angle OSIRIS camera taken on September 22, 2014. Stark and jagged, the 3D landscape is found along the Seth region of the comet's double-lobed nucleus. It spans about 985 x 820 meters, pocked by circular ridges, depressions, and flattened areas strewn with boulders and debris. The large steep-walled circular pit in the foreground is 180 meters in diameter. Rosetta's mission to the comet ended in September 2016 when the spacecraft was commanded to a controlled impact with the comet's surface.\",\n  \"hdurl\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"3D 67P\",\n  \"url\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth1024c.jpg\"\n}"
             }
           ]
+        },
+        {
+          "_postman_id": "3b94419f-9530-225f-a5fb-25ea6673fa75",
+          "name": "Message to slack copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "https://hooks.slack.com/services/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",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"Astronomy Picture of the Day\",\n  \"icon_emoji\": \":space_invader:\",\n  \n  \"attachments\": [\n        {\n            \"fallback\": \"{{spaceTitle}}\",\n            \"title\": \"{{spaceTitle}}\",\n            \"text\": \"{{spaceExplanation}}\",\n            \"color\": \"#7CD197\",\n            \"thumb_url\": \"{{spaceUrl}}\",\n            \"image_url\": \"{{spaceUrl}}\"\n        }\n    ]\n}"
+            },
+            "description": "POST request to send the Astronomy Picture of the Day to Slack.\n\nReplace the URL with your own custom Slack webhook. Learn more [here](\"https://api.slack.com/incoming-webhooks\").\n\nUnder the **Body** tab, we can include elements for our Slack message by accessing our environmental variables that we set during the previous GET request.\n\nClick **Send** to send the request, and see your message posted in Slack."
+          },
+          "response": []
         }
       ]
     },
@@ -532,63 +564,63 @@
               "body": "{\n  \"date\": \"2017-03-31\",\n  \"explanation\": \"Get out your red/cyan glasses and gaze across the surface of Churyumov-Gerasimenko, aka Comet 67P. The stereo anaglyph was created by combining two images from the Rosetta spacecraft's narrow angle OSIRIS camera taken on September 22, 2014. Stark and jagged, the 3D landscape is found along the Seth region of the comet's double-lobed nucleus. It spans about 985 x 820 meters, pocked by circular ridges, depressions, and flattened areas strewn with boulders and debris. The large steep-walled circular pit in the foreground is 180 meters in diameter. Rosetta's mission to the comet ended in September 2016 when the spacecraft was commanded to a controlled impact with the comet's surface.\",\n  \"hdurl\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"3D 67P\",\n  \"url\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth1024c.jpg\"\n}"
             }
           ]
+        },
+        {
+          "_postman_id": "64e36a2b-cea3-7d41-439b-0e9a8988f0f8",
+          "name": "Upload image to Imgur ANON",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "if (responsecode.code === 200) {",
+                  "    postman.setNextRequest(null);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "https://api.imgur.com/3/upload",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Client-ID 9cbdb08dc9da19f",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "value": "{{spaceUrl}}",
+                  "type": "text",
+                  "enabled": true
+                },
+                {
+                  "key": "title",
+                  "value": "{{spaceTitle}}",
+                  "type": "text",
+                  "enabled": true
+                },
+                {
+                  "key": "description",
+                  "value": "{{spaceExplanation}}",
+                  "type": "text",
+                  "enabled": true
+                }
+              ]
+            },
+            "description": "Upload an image anonymously to Imgur\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints). If you don't already have one, create an Imgur account, and register an application.\n\nWe will be using the [image upload endpoint](https://api.imgur.com/endpoints/image#image-upload) from Imgur.\n\n- In the Postman request builder, select the `POST` method from the dropdown, and enter the `https://api.imgur.com/3/upload` endpoint in the URL bar.\n- Under the Postman **Headers* tab, enter an `Authorization` key with the value of `Client-ID <your-client-id-from-imgur>`.\n- Under the Postman **Body** tab, enter the body parameters that you would like to include in your image upload. For the `image` key, we will use a URL for an image as the value. We can access the environment variable that we created in the previous request within this collection, by using double curly brackets surrounding the environment variable name (e.g. `{{spaceUrl}}`)."
+          },
+          "response": []
         }
       ]
-    },
-    {
-      "_postman_id": "64e36a2b-cea3-7d41-439b-0e9a8988f0f8",
-      "name": "Upload image to Imgur ANON",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "",
-              "if (responsecode.code === 200) {",
-              "    postman.setNextRequest(null);",
-              "}"
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "https://api.imgur.com/3/upload",
-        "method": "POST",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Client-ID 9cbdb08dc9da19f",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "image",
-              "value": "{{spaceUrl}}",
-              "type": "text",
-              "enabled": true
-            },
-            {
-              "key": "title",
-              "value": "{{spaceTitle}}",
-              "type": "text",
-              "enabled": true
-            },
-            {
-              "key": "description",
-              "value": "{{spaceExplanation}}",
-              "type": "text",
-              "enabled": true
-            }
-          ]
-        },
-        "description": "Upload an image anonymously to Imgur\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints). If you don't already have one, create an Imgur account, and register an application.\n\nWe will be using the [image upload endpoint](https://api.imgur.com/endpoints/image#image-upload) from Imgur.\n\n- In the Postman request builder, select the `POST` method from the dropdown, and enter the `https://api.imgur.com/3/upload` endpoint in the URL bar.\n- Under the Postman **Headers* tab, enter an `Authorization` key with the value of `Client-ID <your-client-id-from-imgur>`.\n- Under the Postman **Body** tab, enter the body parameters that you would like to include in your image upload. For the `image` key, we will use a URL for an image as the value. We can access the environment variable that we created in the previous request within this collection, by using double curly brackets surrounding the environment variable name (e.g. `{{spaceUrl}}`)."
-      },
-      "response": []
     }
   ]
 }
