@@ -147,7 +147,7 @@
         },
         {
           "_postman_id": "3b94419f-9530-225f-a5fb-25ea6673fa75",
-          "name": "Message to slack",
+          "name": "Message to slack copy",
           "event": [
             {
               "listen": "test",
