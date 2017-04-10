@@ -472,7 +472,7 @@
                   "",
                   "}",
                   "",
-                  "// the setNextRequest() method accepts a request name within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of the next request in the list.",
+                  "// the setNextRequest() method accepts a request name or id within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of the next request in the list. ",
                   "postman.setNextRequest(\"Upload image to Imgur ANON\");",
                   ""
                 ]
