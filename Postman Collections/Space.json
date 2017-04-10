@@ -430,7 +430,7 @@
     {
       "_postman_id": "e3108187-6261-01da-8f12-bedc908a9916",
       "name": "Space to Imgur ANON",
-      "description": "Post the picture anonymously to Imgur",
+      "description": "Post the picture anonymously to Imgur.",
       "item": [
         {
           "_postman_id": "0aa1c2b4-b753-b638-705f-3062b6eebae4",
