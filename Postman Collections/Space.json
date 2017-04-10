@@ -173,7 +173,7 @@
               "mode": "raw",
               "raw": "{\n  \"username\": \"Astronomy Picture of the Day\",\n  \"icon_emoji\": \":space_invader:\",\n  \n  \"attachments\": [\n        {\n            \"fallback\": \"{{spaceTitle}}\",\n            \"title\": \"{{spaceTitle}}\",\n            \"text\": \"{{spaceExplanation}}\",\n            \"color\": \"#7CD197\",\n            \"thumb_url\": \"{{spaceUrl}}\",\n            \"image_url\": \"{{spaceUrl}}\"\n        }\n    ]\n}"
             },
-            "description": "POST request to send the Astronomy Picture of the Day to Slack.\n\nReplace the URL with your own custom Slack webhook. Learn more [here](\"https://api.slack.com/incoming-webhooks\").\n\nUnder the **Body** tab, we can include elements for our Slack message by accessing our environmental variables that we set during the previous GET request.\n\nClick **Send** to send the request, and see your message posted in Slack."
+            "description": "POST an image to Slack\n===\n\nUse a custom [Slack webhook](\"https://api.slack.com/incoming-webhooks\"). Add an environment that includes an entry with the key `slack` and a value of your Slack webhook id.\n\nUnder the **Body** tab, we can include elements for our Slack message by accessing our environmental variables that we set during the previous GET request."
           },
           "response": []
         }
