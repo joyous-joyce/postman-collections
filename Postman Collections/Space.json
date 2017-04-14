@@ -10,7 +10,7 @@
     {
       "_postman_id": "504696c0-d215-347e-f514-d98504c55be8",
       "name": "Space to Slack",
-      "description": "Post the picture to Slack using an incoming webhook.",
+      "description": "Post the picture to Slack using an incoming webhook.\n\n<img src=https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/slack.png>",
       "item": [
         {
           "_postman_id": "a3bed22b-d5bf-5364-c0de-04ab71f4d67b",
@@ -572,6 +572,110 @@
               "cookie": [],
               "responseTime": "175",
               "body": "{\n  \"date\": \"2017-03-31\",\n  \"explanation\": \"Get out your red/cyan glasses and gaze across the surface of Churyumov-Gerasimenko, aka Comet 67P. The stereo anaglyph was created by combining two images from the Rosetta spacecraft's narrow angle OSIRIS camera taken on September 22, 2014. Stark and jagged, the 3D landscape is found along the Seth region of the comet's double-lobed nucleus. It spans about 985 x 820 meters, pocked by circular ridges, depressions, and flattened areas strewn with boulders and debris. The large steep-walled circular pit in the foreground is 180 meters in diameter. Rosetta's mission to the comet ended in September 2016 when the spacecraft was commanded to a controlled impact with the comet's surface.\",\n  \"hdurl\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"3D 67P\",\n  \"url\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth1024c.jpg\"\n}"
+            },
+            {
+              "id": "fdfab525-afbc-bf39-6df3-52a250c87f6c",
+              "name": "200 success",
+              "originalRequest": {
+                "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
+                "method": "GET",
+                "header": [],
+                "body": {},
+                "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run.\n- The third bit of code controls the workflow sequence and designates which request in the same collection to run next, instead of the next request in the list."
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "Age",
+                  "value": "0",
+                  "name": "Age",
+                  "description": ""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "642",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 13 Apr 2017 21:46:19 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "openresty",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000",
+                  "name": "Strict-Transport-Security",
+                  "description": ""
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": ""
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": ""
+                },
+                {
+                  "key": "Via",
+                  "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                  "name": "Via",
+                  "description": ""
+                },
+                {
+                  "key": "X-Cache",
+                  "value": "MISS",
+                  "name": "X-Cache",
+                  "description": ""
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "40",
+                  "name": "X-RateLimit-Limit",
+                  "description": ""
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "39",
+                  "name": "X-RateLimit-Remaining",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": "562",
+              "body": "{\n  \"copyright\": \"G\\u00f6ran Strand\",\n  \"date\": \"2017-04-13\",\n  \"explanation\": \"On April 10, a Full Moon and Jupiter shared this telephoto field of view. Both were near opposition, opposite the Sun in Earth's night sky. Captured when a passing cloud bank dimmmed the bright moonlight, the single exposure reveals the familiar face of our fair planet's own large natural satellite, along with a line up of the ruling gas giant's four Galilean moons. Labeled top to bottom, the tiny pinpricks of light above bright Jupiter are Callisto, Europa, Ganymede, and Io. Closer and brighter, our own natural satellite appears to loom large. But Callisto, Ganymede, and Io are physically larger than Earth's Moon, while water world Europa is only slightly smaller.  In fact, of the Solar System's six largest planetary satellites, only Saturn's moon Titan is missing from the scene.\",\n  \"hdurl\": \"https://apod.nasa.gov/apod/image/1704/GS_20170410_MoonJupiter_7435.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"Moons and Jupiter\",\n  \"url\": \"https://apod.nasa.gov/apod/image/1704/GS_20170410_MoonJupiter_7435px1024.jpg\"\n}"
             }
           ]
         },
