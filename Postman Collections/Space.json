@@ -3,7 +3,7 @@
   "info": {
     "name": "Space Collection",
     "_postman_id": "db84bc44-e279-688f-6c21-820e3941040c",
-    "description": "Super Cool Space Collection\n===\n\n<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/nasa.jpg\">\n\nRetrieve the **Astronomy Pic of the Day from NASA**, and then:\n\n- post the picture anonymously to Imgur\n- post the picture and share with Imgur gallery under your account\n- post the picture to Slack",
+    "description": "Super Cool Space Collection\n===\n\n<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/nasa.jpg\" width=\"200\">\n\nRetrieve the **Astronomy Pic of the Day from NASA**, and then:\n\n- post the picture anonymously to Imgur\n- post the picture and share with Imgur gallery under your account\n- post the picture to Slack",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
