@@ -187,7 +187,7 @@
     {
       "_postman_id": "7e9557b7-ff9b-3e9f-7447-9d9c8258660d",
       "name": "Space to Imgur Gallery",
-      "description": "Post the picture and share with the Imgur gallery under your account.",
+      "description": "Post the picture and share with the Imgur gallery under your account.\n\n<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurGall.png\">",
       "item": [
         {
           "_postman_id": "183c8f4c-9828-4478-841a-1676225a5462",
