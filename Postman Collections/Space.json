@@ -10,7 +10,7 @@
     {
       "_postman_id": "504696c0-d215-347e-f514-d98504c55be8",
       "name": "Space to Slack",
-      "description": "Post the picture to Slack using an incoming webhook.\n\n<img src=https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/slack.png>",
+      "description": "Post the picture to Slack using an incoming webhook. Set up a Postman monitor to schedule a run on a regular basis.\n\n<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/slack.png\">",
       "item": [
         {
           "_postman_id": "a3bed22b-d5bf-5364-c0de-04ab71f4d67b",
