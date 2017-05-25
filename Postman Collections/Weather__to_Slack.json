@@ -41,13 +41,254 @@
         "url": "https://maps.googleapis.com/maps/api/geocode/json?address=\"1 Infinite Loop, Cupertino, CA 95014\"&key={{googleapikey}}",
         "method": "GET",
         "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": []
-        },
+        "body": {},
         "description": ""
       },
-      "response": []
+      "response": [
+        {
+          "id": "059c8ba2-61c0-a710-b13a-a79311333b98",
+          "name": "200 OK",
+          "originalRequest": {
+            "url": "https://maps.googleapis.com/maps/api/geocode/json?address=\"1 Infinite Loop, Cupertino, CA 95014\"&key={{googleapikey}}",
+            "method": "GET",
+            "header": [],
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "text",
+          "header": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*",
+              "name": "Access-Control-Allow-Origin",
+              "description": ""
+            },
+            {
+              "key": "Alt-Svc",
+              "value": "quic=\":443\"; ma=2592000; v=\"37,36,35\"",
+              "name": "Alt-Svc",
+              "description": ""
+            },
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=86400",
+              "name": "Cache-Control",
+              "description": ""
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip",
+              "name": "Content-Encoding",
+              "description": ""
+            },
+            {
+              "key": "Content-Length",
+              "value": "538",
+              "name": "Content-Length",
+              "description": ""
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=UTF-8",
+              "name": "Content-Type",
+              "description": ""
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 25 May 2017 11:55:10 GMT",
+              "name": "Date",
+              "description": ""
+            },
+            {
+              "key": "Expires",
+              "value": "Fri, 26 May 2017 11:55:10 GMT",
+              "name": "Expires",
+              "description": ""
+            },
+            {
+              "key": "Server",
+              "value": "mafe",
+              "name": "Server",
+              "description": ""
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Language",
+              "name": "Vary",
+              "description": ""
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN",
+              "name": "X-Frame-Options",
+              "description": ""
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block",
+              "name": "X-XSS-Protection",
+              "description": ""
+            }
+          ],
+          "cookie": [],
+          "responseTime": "135",
+          "body": "{\n   \"results\" : [\n      {\n         \"address_components\" : [\n            {\n               \"long_name\" : \"1\",\n               \"short_name\" : \"1\",\n               \"types\" : [ \"street_number\" ]\n            },\n            {\n               \"long_name\" : \"Infinite Loop\",\n               \"short_name\" : \"Infinite Loop\",\n               \"types\" : [ \"route\" ]\n            },\n            {\n               \"long_name\" : \"Cupertino\",\n               \"short_name\" : \"Cupertino\",\n               \"types\" : [ \"locality\", \"political\" ]\n            },\n            {\n               \"long_name\" : \"Santa Clara County\",\n               \"short_name\" : \"Santa Clara County\",\n               \"types\" : [ \"administrative_area_level_2\", \"political\" ]\n            },\n            {\n               \"long_name\" : \"California\",\n               \"short_name\" : \"CA\",\n               \"types\" : [ \"administrative_area_level_1\", \"political\" ]\n            },\n            {\n               \"long_name\" : \"United States\",\n               \"short_name\" : \"US\",\n               \"types\" : [ \"country\", \"political\" ]\n            },\n            {\n               \"long_name\" : \"95014\",\n               \"short_name\" : \"95014\",\n               \"types\" : [ \"postal_code\" ]\n            },\n            {\n               \"long_name\" : \"2083\",\n               \"short_name\" : \"2083\",\n               \"types\" : [ \"postal_code_suffix\" ]\n            }\n         ],\n         \"formatted_address\" : \"1 Infinite Loop, Cupertino, CA 95014, USA\",\n         \"geometry\" : {\n            \"location\" : {\n               \"lat\" : 37.331695,\n               \"lng\" : -122.0300914\n            },\n            \"location_type\" : \"ROOFTOP\",\n            \"viewport\" : {\n               \"northeast\" : {\n                  \"lat\" : 37.3330439802915,\n                  \"lng\" : -122.0287424197085\n               },\n               \"southwest\" : {\n                  \"lat\" : 37.3303460197085,\n                  \"lng\" : -122.0314403802915\n               }\n            }\n         },\n         \"place_id\" : \"ChIJN7JUxLa1j4AR7-m1UdKbLow\",\n         \"types\" : [ \"street_address\" ]\n      }\n   ],\n   \"status\" : \"OK\"\n}\n"
+        },
+        {
+          "id": "be0383f0-f8c9-35bd-d368-f88d26fea775",
+          "name": "200 ok",
+          "originalRequest": {
+            "url": "https://maps.googleapis.com/maps/api/geocode/json?address=\"1 Infinite Loop, Cupertino, CA 95014\"&key={{googleapikey}}",
+            "method": "GET",
+            "header": [],
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "text",
+          "header": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*",
+              "name": "Access-Control-Allow-Origin",
+              "description": ""
+            },
+            {
+              "key": "Alt-Svc",
+              "value": "quic=\":443\"; ma=2592000; v=\"37,36,35\"",
+              "name": "Alt-Svc",
+              "description": ""
+            },
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=86400",
+              "name": "Cache-Control",
+              "description": ""
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip",
+              "name": "Content-Encoding",
+              "description": ""
+            },
+            {
+              "key": "Content-Length",
+              "value": "538",
+              "name": "Content-Length",
+              "description": ""
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=UTF-8",
+              "name": "Content-Type",
+              "description": ""
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 25 May 2017 11:53:30 GMT",
+              "name": "Date",
+              "description": ""
+            },
+            {
+              "key": "Expires",
+              "value": "Fri, 26 May 2017 11:53:30 GMT",
+              "name": "Expires",
+              "description": ""
+            },
+            {
+              "key": "Server",
+              "value": "mafe",
+              "name": "Server",
+              "description": ""
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Language",
+              "name": "Vary",
+              "description": ""
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN",
+              "name": "X-Frame-Options",
+              "description": ""
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block",
+              "name": "X-XSS-Protection",
+              "description": ""
+            }
+          ],
+          "cookie": [],
+          "responseTime": "674",
+          "body": "{\n   \"results\" : [\n      {\n         \"address_components\" : [\n            {\n               \"long_name\" : \"1\",\n               \"short_name\" : \"1\",\n               \"types\" : [ \"street_number\" ]\n            },\n            {\n               \"long_name\" : \"Infinite Loop\",\n               \"short_name\" : \"Infinite Loop\",\n               \"types\" : [ \"route\" ]\n            },\n            {\n               \"long_name\" : \"Cupertino\",\n               \"short_name\" : \"Cupertino\",\n               \"types\" : [ \"locality\", \"political\" ]\n            },\n            {\n               \"long_name\" : \"Santa Clara County\",\n               \"short_name\" : \"Santa Clara County\",\n               \"types\" : [ \"administrative_area_level_2\", \"political\" ]\n            },\n            {\n               \"long_name\" : \"California\",\n               \"short_name\" : \"CA\",\n               \"types\" : [ \"administrative_area_level_1\", \"political\" ]\n            },\n            {\n               \"long_name\" : \"United States\",\n               \"short_name\" : \"US\",\n               \"types\" : [ \"country\", \"political\" ]\n            },\n            {\n               \"long_name\" : \"95014\",\n               \"short_name\" : \"95014\",\n               \"types\" : [ \"postal_code\" ]\n            },\n            {\n               \"long_name\" : \"2083\",\n               \"short_name\" : \"2083\",\n               \"types\" : [ \"postal_code_suffix\" ]\n            }\n         ],\n         \"formatted_address\" : \"1 Infinite Loop, Cupertino, CA 95014, USA\",\n         \"geometry\" : {\n            \"location\" : {\n               \"lat\" : 37.331695,\n               \"lng\" : -122.0300914\n            },\n            \"location_type\" : \"ROOFTOP\",\n            \"viewport\" : {\n               \"northeast\" : {\n                  \"lat\" : 37.3330439802915,\n                  \"lng\" : -122.0287424197085\n               },\n               \"southwest\" : {\n                  \"lat\" : 37.3303460197085,\n                  \"lng\" : -122.0314403802915\n               }\n            }\n         },\n         \"place_id\" : \"ChIJN7JUxLa1j4AR7-m1UdKbLow\",\n         \"types\" : [ \"street_address\" ]\n      }\n   ],\n   \"status\" : \"OK\"\n}\n"
+        },
+        {
+          "id": "c69a7315-efb4-5f1c-e81d-edfa9ba0ec32",
+          "name": "404",
+          "originalRequest": {
+            "url": "https://maps.googleapis.com/maps/api/geocode",
+            "method": "GET",
+            "header": [],
+            "body": {}
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "html",
+          "_postman_previewtype": "text",
+          "header": [
+            {
+              "key": "Alt-Svc",
+              "value": "quic=\":443\"; ma=2592000; v=\"37,36,35\"",
+              "name": "Alt-Svc",
+              "description": ""
+            },
+            {
+              "key": "Content-Length",
+              "value": "1577",
+              "name": "Content-Length",
+              "description": ""
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=UTF-8",
+              "name": "Content-Type",
+              "description": ""
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 25 May 2017 11:54:29 GMT",
+              "name": "Date",
+              "description": ""
+            },
+            {
+              "key": "Server",
+              "value": "mafe",
+              "name": "Server",
+              "description": ""
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN",
+              "name": "X-Frame-Options",
+              "description": ""
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block",
+              "name": "X-XSS-Protection",
+              "description": ""
+            }
+          ],
+          "cookie": [],
+          "responseTime": "90",
+          "body": "<!DOCTYPE html>\n<html lang=en>\n  <meta charset=utf-8>\n  <meta name=viewport content=\"initial-scale=1, minimum-scale=1, width=device-width\">\n  <title>Error 404 (Not Found)!!1</title>\n  <style>\n    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}\n  </style>\n  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>\n  <p><b>404.</b> <ins>Thats an error.</ins>\n  <p>The requested URL <code>/maps/api/geocode</code> was not found on this server.  <ins>Thats all we know.</ins>\n"
+        }
+      ]
     },
     {
       "_postman_id": "73b30070-99b7-6f2f-0207-48118abfa765",
@@ -84,10 +325,7 @@
         "url": "https://api.forecast.io/forecast/{{forecastapikey}}/{{latlong}}",
         "method": "GET",
         "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": []
-        },
+        "body": {},
         "description": ""
       },
       "response": []
