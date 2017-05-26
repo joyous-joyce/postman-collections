@@ -835,7 +835,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer {{accessToken}}",
+                "value": "Bearer {{imgurAccessToken}}",
                 "description": ""
               }
             ],
