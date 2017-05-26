@@ -232,6 +232,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "// skip this folder",
                   "postman.setNextRequset('Astronomy Picture of the Day');"
                 ]
               }
