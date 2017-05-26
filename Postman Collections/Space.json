@@ -233,7 +233,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "// skip this folder",
-                  "postman.setNextRequset('Astronomy Picture of the Day');"
+                  "postman.setNextRequest('Astronomy Picture of the Day');"
                 ]
               }
             }
