@@ -422,7 +422,7 @@
         },
         {
           "_postman_id": "1e15945c-2cde-0d86-2b97-135e9b44995b",
-          "name": "Get Imgur auth token",
+          "name": "Get Imgur auth token 1",
           "event": [
             {
               "listen": "test",
