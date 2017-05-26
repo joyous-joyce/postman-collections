@@ -189,6 +189,238 @@
       "description": "Post the picture anonymously to Imgur.\n\n<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgur.png\">",
       "item": [
         {
+          "_postman_id": "dbaecbf6-a86f-1bd6-f8d3-b3777d91c231",
+          "name": "Get the astronomy pic of the day",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// for commonly used tests, click on the snippets to the right for starter code. Any modifications or custom scripts can be written in JavaScript.",
+                  "",
+                  "// this first test ensures a successful 200 response status code",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "// this second block of code will parse the response object and set environment variables",
+                  "if (responseCode.code === 200) {",
+                  "    ",
+                  "    try {",
+                  "        // parse the JSON response object to access title, explanation, and hdurl",
+                  "        var result = JSON.parse(responseBody);",
+                  "        var title = result.title;",
+                  "        var explanation = result.explanation;",
+                  "        var url = result.hdurl;",
+                  "    }",
+                  "    ",
+                  "    catch(e) {",
+                  "        console.log(e);",
+                  "    }",
+                  "    ",
+                  "    // the setEnvironmentVariable() method accepts a variable name and value as parameters. Use this method to establish environment variables that can be accessed in subsequent requests when the entire collection is run along with the corresponding environment template.",
+                  "    postman.setEnvironmentVariable(\"spaceTitle\", title);",
+                  "    postman.setEnvironmentVariable(\"spaceExplanation\", explanation);",
+                  "    postman.setEnvironmentVariable(\"spaceUrl\", url);",
+                  "",
+                  "}",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "description": "<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/nasa.jpg\" width=\"200px\">\n\nGET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Review [documentation](https://api.nasa.gov/api.html#apod) for the NASA API.\n\nStart in the Postman request builder. \n\n  - Method: Select `GET` from the dropdown menu of HTTP methods.\n\n  - URL: Enter the URL endpoint provided by NASA - `https://api.nasa.gov/planetary/apod`\n\n  - Parameters: This request will work without any additional parameters, and default to using NASA's demo key. However, we can choose to add query string parameters to our request. Click the Params button to reveal a key-value editor. As you input parameters, they are automatically added to the query string in the URL bar above.\n\nUnder the Postman **Tests** tab, we can write scripts in JavaScript to execute any logic after the request is sent. \n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n[![tests tab](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/APODtests.png)](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/APODtests.png)\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON response object, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run.\n- The third bit of code controls the workflow sequence and designates which request in the same collection to run next, instead of the next request in the list.\n\nRead more about [writing tests](https://www.getpostman.com/docs/postman/scripts/test_scripts) and [controlling the workflow](https://www.getpostman.com/docs/postman/collection_runs/building_workflows) in the Postman docs.  \n"
+          },
+          "response": [
+            {
+              "id": "2cd839b8-4611-acfa-a07f-f629c6508406",
+              "name": "200",
+              "originalRequest": {
+                "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
+                "method": "GET",
+                "header": [],
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "description": "",
+                  "key": "Age",
+                  "name": "Age",
+                  "value": "0"
+                },
+                {
+                  "description": "",
+                  "key": "Connection",
+                  "name": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "description": "",
+                  "key": "Content-Length",
+                  "name": "Content-Length",
+                  "value": "949"
+                },
+                {
+                  "description": "",
+                  "key": "Content-Type",
+                  "name": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "description": "",
+                  "key": "Date",
+                  "name": "Date",
+                  "value": "Fri, 31 Mar 2017 22:55:44 GMT"
+                },
+                {
+                  "description": "",
+                  "key": "Server",
+                  "name": "Server",
+                  "value": "openresty"
+                },
+                {
+                  "description": "",
+                  "key": "Via",
+                  "name": "Via",
+                  "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])"
+                },
+                {
+                  "description": "",
+                  "key": "X-Cache",
+                  "name": "X-Cache",
+                  "value": "MISS"
+                },
+                {
+                  "description": "",
+                  "key": "X-RateLimit-Limit",
+                  "name": "X-RateLimit-Limit",
+                  "value": "40"
+                },
+                {
+                  "description": "",
+                  "key": "X-RateLimit-Remaining",
+                  "name": "X-RateLimit-Remaining",
+                  "value": "38"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "175",
+              "body": "{\n  \"date\": \"2017-03-31\",\n  \"explanation\": \"Get out your red/cyan glasses and gaze across the surface of Churyumov-Gerasimenko, aka Comet 67P. The stereo anaglyph was created by combining two images from the Rosetta spacecraft's narrow angle OSIRIS camera taken on September 22, 2014. Stark and jagged, the 3D landscape is found along the Seth region of the comet's double-lobed nucleus. It spans about 985 x 820 meters, pocked by circular ridges, depressions, and flattened areas strewn with boulders and debris. The large steep-walled circular pit in the foreground is 180 meters in diameter. Rosetta's mission to the comet ended in September 2016 when the spacecraft was commanded to a controlled impact with the comet's surface.\",\n  \"hdurl\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"3D 67P\",\n  \"url\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth1024c.jpg\"\n}"
+            },
+            {
+              "id": "cb7c98b9-02c6-ea38-9d3b-747ba594be6e",
+              "name": "200 success",
+              "originalRequest": {
+                "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
+                "method": "GET",
+                "header": [],
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "description": "",
+                  "key": "Age",
+                  "name": "Age",
+                  "value": "0"
+                },
+                {
+                  "description": "",
+                  "key": "Connection",
+                  "name": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "description": "",
+                  "key": "Content-Encoding",
+                  "name": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "description": "",
+                  "key": "Content-Length",
+                  "name": "Content-Length",
+                  "value": "642"
+                },
+                {
+                  "description": "",
+                  "key": "Content-Type",
+                  "name": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "description": "",
+                  "key": "Date",
+                  "name": "Date",
+                  "value": "Thu, 13 Apr 2017 21:46:19 GMT"
+                },
+                {
+                  "description": "",
+                  "key": "Server",
+                  "name": "Server",
+                  "value": "openresty"
+                },
+                {
+                  "description": "",
+                  "key": "Strict-Transport-Security",
+                  "name": "Strict-Transport-Security",
+                  "value": "max-age=31536000"
+                },
+                {
+                  "description": "",
+                  "key": "Vary",
+                  "name": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "description": "",
+                  "key": "Vary",
+                  "name": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "description": "",
+                  "key": "Via",
+                  "name": "Via",
+                  "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])"
+                },
+                {
+                  "description": "",
+                  "key": "X-Cache",
+                  "name": "X-Cache",
+                  "value": "MISS"
+                },
+                {
+                  "description": "",
+                  "key": "X-RateLimit-Limit",
+                  "name": "X-RateLimit-Limit",
+                  "value": "40"
+                },
+                {
+                  "description": "",
+                  "key": "X-RateLimit-Remaining",
+                  "name": "X-RateLimit-Remaining",
+                  "value": "39"
+                }
+              ],
+              "cookie": [],
+              "responseTime": "562",
+              "body": "{\n  \"copyright\": \"G\\u00f6ran Strand\",\n  \"date\": \"2017-04-13\",\n  \"explanation\": \"On April 10, a Full Moon and Jupiter shared this telephoto field of view. Both were near opposition, opposite the Sun in Earth's night sky. Captured when a passing cloud bank dimmmed the bright moonlight, the single exposure reveals the familiar face of our fair planet's own large natural satellite, along with a line up of the ruling gas giant's four Galilean moons. Labeled top to bottom, the tiny pinpricks of light above bright Jupiter are Callisto, Europa, Ganymede, and Io. Closer and brighter, our own natural satellite appears to loom large. But Callisto, Ganymede, and Io are physically larger than Earth's Moon, while water world Europa is only slightly smaller.  In fact, of the Solar System's six largest planetary satellites, only Saturn's moon Titan is missing from the scene.\",\n  \"hdurl\": \"https://apod.nasa.gov/apod/image/1704/GS_20170410_MoonJupiter_7435.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"Moons and Jupiter\",\n  \"url\": \"https://apod.nasa.gov/apod/image/1704/GS_20170410_MoonJupiter_7435px1024.jpg\"\n}"
+            }
+          ]
+        },
+        {
           "_postman_id": "1e15945c-2cde-0d86-2b97-135e9b44995b",
           "name": "Get Imgur auth token",
           "event": [
