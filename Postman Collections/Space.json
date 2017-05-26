@@ -70,8 +70,7 @@
                 "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
                 "method": "GET",
                 "header": [],
-                "body": {},
-                "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run."
+                "body": {}
               },
               "status": "OK",
               "code": 200,
@@ -185,261 +184,8 @@
       ]
     },
     {
-      "_postman_id": "7e9557b7-ff9b-3e9f-7447-9d9c8258660d",
-      "name": "Space to Imgur Gallery",
-      "description": "Post the picture and share with the Imgur gallery under your account.\n\n<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurGall.png\">",
-      "item": [
-        {
-          "_postman_id": "183c8f4c-9828-4478-841a-1676225a5462",
-          "name": "Astronomy Picture of the Day",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "// for commonly used tests, click on the snippets to the right for starter code. Any modifications or custom scripts can be written in JavaScript.",
-                  "",
-                  "// this first test ensures a successful 200 response status code",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "// this second block of code will parse the response object and set environment variables",
-                  "if (responseCode.code === 200) {",
-                  "    ",
-                  "    try {",
-                  "        // parse the JSON response object to access title, explanation, and hdurl",
-                  "        var result = JSON.parse(responseBody);",
-                  "        var title = result.title;",
-                  "        var explanation = result.explanation;",
-                  "        var url = result.hdurl;",
-                  "    }",
-                  "    ",
-                  "    catch(e) {",
-                  "        console.log(e);",
-                  "    }",
-                  "    ",
-                  "    // the setEnvironmentVariable() method accepts a variable name and value as parameters. Use this method to establish environment variables that can be accessed in subsequent requests when the entire collection is run along with the corresponding environment template.",
-                  "    postman.setEnvironmentVariable(\"spaceTitle\", title);",
-                  "    postman.setEnvironmentVariable(\"spaceExplanation\", explanation);",
-                  "    postman.setEnvironmentVariable(\"spaceUrl\", url);",
-                  "",
-                  "}",
-                  "",
-                  "// the setNextRequest() method accepts a request name or id within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of the next request in the list. ",
-                  "postman.setNextRequest(\"Upload image to Imgur via OAuth 2.0\");",
-                  ""
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
-            "method": "GET",
-            "header": [],
-            "body": {},
-            "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run.\n- The third bit of code controls the workflow sequence and designates which request in the same collection to run next, instead of the next request in the list."
-          },
-          "response": [
-            {
-              "id": "359309a1-f08d-c144-aa51-c77e72ee1f94",
-              "name": "200",
-              "originalRequest": {
-                "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
-                "method": "GET",
-                "header": [],
-                "body": {},
-                "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run.\n- The third bit of code controls the workflow sequence and designates which request in the same collection to run next, instead of the next request in the list."
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "_postman_previewtype": "text",
-              "header": [
-                {
-                  "key": "Age",
-                  "value": "0",
-                  "name": "Age",
-                  "description": ""
-                },
-                {
-                  "key": "Connection",
-                  "value": "keep-alive",
-                  "name": "Connection",
-                  "description": ""
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "949",
-                  "name": "Content-Length",
-                  "description": ""
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "name": "Content-Type",
-                  "description": ""
-                },
-                {
-                  "key": "Date",
-                  "value": "Fri, 31 Mar 2017 22:55:44 GMT",
-                  "name": "Date",
-                  "description": ""
-                },
-                {
-                  "key": "Server",
-                  "value": "openresty",
-                  "name": "Server",
-                  "description": ""
-                },
-                {
-                  "key": "Via",
-                  "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
-                  "name": "Via",
-                  "description": ""
-                },
-                {
-                  "key": "X-Cache",
-                  "value": "MISS",
-                  "name": "X-Cache",
-                  "description": ""
-                },
-                {
-                  "key": "X-RateLimit-Limit",
-                  "value": "40",
-                  "name": "X-RateLimit-Limit",
-                  "description": ""
-                },
-                {
-                  "key": "X-RateLimit-Remaining",
-                  "value": "38",
-                  "name": "X-RateLimit-Remaining",
-                  "description": ""
-                }
-              ],
-              "cookie": [],
-              "responseTime": "175",
-              "body": "{\n  \"date\": \"2017-03-31\",\n  \"explanation\": \"Get out your red/cyan glasses and gaze across the surface of Churyumov-Gerasimenko, aka Comet 67P. The stereo anaglyph was created by combining two images from the Rosetta spacecraft's narrow angle OSIRIS camera taken on September 22, 2014. Stark and jagged, the 3D landscape is found along the Seth region of the comet's double-lobed nucleus. It spans about 985 x 820 meters, pocked by circular ridges, depressions, and flattened areas strewn with boulders and debris. The large steep-walled circular pit in the foreground is 180 meters in diameter. Rosetta's mission to the comet ended in September 2016 when the spacecraft was commanded to a controlled impact with the comet's surface.\",\n  \"hdurl\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"3D 67P\",\n  \"url\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth1024c.jpg\"\n}"
-            }
-          ]
-        },
-        {
-          "_postman_id": "7af771d1-4806-6cbe-aca9-468ae581d03d",
-          "name": "Upload image to Imgur via OAuth 2.0",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "// it might be useful to hang on to the photo's id on Imgur. We can do that by parsing the response object, and setting an environment variable to access in subsequent requests. ",
-                  "",
-                  "if (responseCode.code === 200) {",
-                  "    ",
-                  "    try {",
-                  "        var result = JSON.parse(responseBody);",
-                  "        var id = result.data.id;",
-                  "    }",
-                  "    ",
-                  "    catch(e) {",
-                  "        console.log(e);",
-                  "    }",
-                  "    ",
-                  "    postman.setEnvironmentVariable(\"imgurId\", id);",
-                  "    ",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "https://api.imgur.com/3/upload",
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{accessToken}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "image",
-                  "value": "{{spaceUrl}}",
-                  "type": "text",
-                  "enabled": true
-                },
-                {
-                  "key": "title",
-                  "value": "{{spaceTitle}}",
-                  "type": "text",
-                  "enabled": true
-                },
-                {
-                  "key": "description",
-                  "value": "{{spaceExplanation}} ....... beep boop .... Here's the Astronomy picture of the day from NASA, posted using Postman: https://documenter.getpostman.com/view/1559979/space-to-imgur/6YsWHS2",
-                  "type": "text",
-                  "enabled": true
-                }
-              ]
-            },
-            "description": "Upload an image under your Imgur account via OAuth 2.0\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints). If you don't already have one, create an Imgur account, and register an application.\n\nThis is essentially the same request as the previous one to upload an image anonymously to Imgur, except we will authorize our request using an Oauth 2.0 access token.\n\nUnder the Postman **Authorization** tab, select `OAuth 2.0` from the dropdown. Click the `Get New Access Token` button to request your token.\n- Token Name: <any-token-name-that-you-want>\n- Auth URL: `https://api.imgur.com/oauth2/authorize`\n- Access Token URL: `https://api.imgur.com/oauth2/token`\n- Client ID: <your-app's-client-ID-from-Imgur>\n- Client Secret: <generate-new-secret-for-your-app-from-Imgur>\n- Grant Type: `Authorization Code`\n\nStill under the Postman **Authorization** tab, select your new token's name and verify `Add token to` is set to `Header`. Copy the `access_token` value and save it as a new environment variable (e.g. `accessToken`) by clicking the eyeball in the upper right corner of the Postman app.\n\nNote: if you share your Postman environment template with another person, they will have access to your `access_token` unless create a shareable environment template stripped of the `access_token` value.\n\nUnder the Postman **Headers** tab, replace the `Authorization` value with `Bearer {{<your-environment-variable-name>}}`.\n\nLastly, if I want to do some other things with this uploaded image, it might be useful for me to hold on to the photo's id on Imgur. Do you remember how to do that? Check out the comments under the Postman **Tests** tab for a hint."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "cfa12e22-05e6-3400-e254-e2f5014b561c",
-          "name": "Share image with Imgur community",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "if (responseCode.code === 200) {",
-                  "    // the setNextRequest() method is typically used to indicate the subsequent request to run. You can also use this method to stop workflow execution with a null parameter.",
-                  "    postman.setNextRequest(null);",
-                  "}",
-                  ""
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "https://api.imgur.com/3/gallery/image/{{imgurId}}",
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{accessToken}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "enabled": true,
-                  "key": "title",
-                  "type": "text",
-                  "value": "{{spaceTitle}}"
-                }
-              ]
-            },
-            "description": "Share an image with the Imgur community via OAuth 2.0.\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints). If you don't already have one, create an Imgur account, and register an application.\n\nWe will be using the [share with community endpoint](https://api.imgur.com/endpoints/gallery#to-gallery) from Imgur.\n\n- In the Postman request builder, select the `POST` method from the dropdown, and enter the `https://api.imgur.com/3/gallery/image/{{imgurId}}` endpoint in the URL bar, where `imgurId` is the name of your new environment variable created from the response object when you uploaded the photo to Imgur. Once again, we can access the environment variable that we created in the previous request within this collection, by using double curly brackets surrounding the environment variable name (e.g. `{{imgurId}}`).\n- Under the Postman **Headers* tab, we will use the same `{{accessToken}}` that we used in the preceding OAuth 2.0 request.\n- Under the Postman **Body** tab, enter the body parameters that you would like to include in your image upload. For the `title` key, we will use an environment variable created from the response object when you retrieved the initial photo from NASA."
-          },
-          "response": []
-        }
-      ]
-    },
-    {
       "_postman_id": "e3108187-6261-01da-8f12-bedc908a9916",
-      "name": "Space to Imgur ANON",
+      "name": "Space to Imgur",
       "description": "Post the picture anonymously to Imgur.\n\n<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgur.png\">",
       "item": [
         {
@@ -495,14 +241,98 @@
           },
           "response": [
             {
+              "id": "395c671d-90f2-9122-05e8-29078847a765",
+              "name": "examples",
+              "originalRequest": {
+                "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
+                "method": "GET",
+                "header": [],
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "Age",
+                  "value": "0",
+                  "name": "Age",
+                  "description": ""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "954",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 15 May 2017 18:55:46 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "openresty",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000",
+                  "name": "Strict-Transport-Security",
+                  "description": ""
+                },
+                {
+                  "key": "Via",
+                  "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                  "name": "Via",
+                  "description": ""
+                },
+                {
+                  "key": "X-Cache",
+                  "value": "MISS",
+                  "name": "X-Cache",
+                  "description": ""
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "40",
+                  "name": "X-RateLimit-Limit",
+                  "description": ""
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "39",
+                  "name": "X-RateLimit-Remaining",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": "1226",
+              "body": "{\n  \"date\": \"2017-05-15\",\n  \"explanation\": \"Watch a huge lightning storm move across the eastern USA. The huge storm caused much damage and unfortunately some loss of life for people in its path. Seen from space, the lightning is seen as momentary flashes in the featured time-lapse video recorded last month by the Geostationary Lightning Mapper (GLM) aboard the GOES-16 satellite. The outline of North America is most evident during the day, while the bright lightning strikes are most evident at night.  Inspection of the video shows that much of the lightning occurred at the leading edge of the huge tail of the swirling storm.  Because lightning frequently precedes a storm's most violent impact, lightning data from GLM holds promise to help reduce the harm to humans from future storms.\",\n  \"media_type\": \"video\",\n  \"service_version\": \"v1\",\n  \"title\": \"Lightning Storm Moves Across the USA\",\n  \"url\": \"https://www.youtube.com/embed/vxJTQuWISbk\"\n}"
+            },
+            {
               "id": "b651ee43-16ea-e88b-212a-427c18844073",
               "name": "200",
               "originalRequest": {
                 "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
                 "method": "GET",
                 "header": [],
-                "body": {},
-                "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run.\n- The third bit of code controls the workflow sequence and designates which request in the same collection to run next, instead of the next request in the list."
+                "body": {}
               },
               "status": "OK",
               "code": 200,
@@ -581,8 +411,7 @@
                 "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
                 "method": "GET",
                 "header": [],
-                "body": {},
-                "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run.\n- The third bit of code controls the workflow sequence and designates which request in the same collection to run next, instead of the next request in the list."
+                "body": {}
               },
               "status": "OK",
               "code": 200,
@@ -713,19 +542,16 @@
               "mode": "formdata",
               "formdata": [
                 {
-                  "enabled": true,
                   "key": "image",
                   "type": "text",
                   "value": "{{spaceUrl}}"
                 },
                 {
-                  "enabled": true,
                   "key": "title",
                   "type": "text",
                   "value": "{{spaceTitle}}"
                 },
                 {
-                  "enabled": true,
                   "key": "description",
                   "type": "text",
                   "value": "{{spaceExplanation}}"
@@ -733,6 +559,254 @@
               ]
             },
             "description": "Upload an image anonymously to Imgur\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints). If you don't already have one, create an Imgur account, and register an application.\n\nWe will be using the [image upload endpoint](https://api.imgur.com/endpoints/image#image-upload) from Imgur.\n\n- In the Postman request builder, select the `POST` method from the dropdown, and enter the `https://api.imgur.com/3/upload` endpoint in the URL bar.\n- Under the Postman **Headers** tab, enter an `Authorization` key with the value of `Client-ID <your-client-id-from-imgur>`.\n<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/Screen+Shot+2017-04-18+at+2.26.34+PM_censored.jpg\">\n\n- Under the Postman **Body** tab, enter the body parameters that you would like to include in your image upload. For the `image` key, we will use a URL for an image as the value. We can access the environment variable that we created in the previous request within this collection, by using double curly brackets surrounding the environment variable name (e.g. `{{spaceUrl}}`)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "7e9557b7-ff9b-3e9f-7447-9d9c8258660d",
+      "name": "Space to Imgur Gallery",
+      "description": "Post the picture and share with the Imgur gallery under your account.\n\n<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurGall.png\">",
+      "item": [
+        {
+          "_postman_id": "183c8f4c-9828-4478-841a-1676225a5462",
+          "name": "Astronomy Picture of the Day",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// for commonly used tests, click on the snippets to the right for starter code. Any modifications or custom scripts can be written in JavaScript.",
+                  "",
+                  "// this first test ensures a successful 200 response status code",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "// this second block of code will parse the response object and set environment variables",
+                  "if (responseCode.code === 200) {",
+                  "    ",
+                  "    try {",
+                  "        // parse the JSON response object to access title, explanation, and hdurl",
+                  "        var result = JSON.parse(responseBody);",
+                  "        var title = result.title;",
+                  "        var explanation = result.explanation;",
+                  "        var url = result.hdurl;",
+                  "    }",
+                  "    ",
+                  "    catch(e) {",
+                  "        console.log(e);",
+                  "    }",
+                  "    ",
+                  "    // the setEnvironmentVariable() method accepts a variable name and value as parameters. Use this method to establish environment variables that can be accessed in subsequent requests when the entire collection is run along with the corresponding environment template.",
+                  "    postman.setEnvironmentVariable(\"spaceTitle\", title);",
+                  "    postman.setEnvironmentVariable(\"spaceExplanation\", explanation);",
+                  "    postman.setEnvironmentVariable(\"spaceUrl\", url);",
+                  "",
+                  "}",
+                  "",
+                  "// the setNextRequest() method accepts a request name or id within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of the next request in the list. ",
+                  "postman.setNextRequest(\"Upload image to Imgur via OAuth 2.0\");",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run.\n- The third bit of code controls the workflow sequence and designates which request in the same collection to run next, instead of the next request in the list."
+          },
+          "response": [
+            {
+              "id": "359309a1-f08d-c144-aa51-c77e72ee1f94",
+              "name": "200",
+              "originalRequest": {
+                "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
+                "method": "GET",
+                "header": [],
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "_postman_previewtype": "text",
+              "header": [
+                {
+                  "key": "Age",
+                  "value": "0",
+                  "name": "Age",
+                  "description": ""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "949",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 31 Mar 2017 22:55:44 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "openresty",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Via",
+                  "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                  "name": "Via",
+                  "description": ""
+                },
+                {
+                  "key": "X-Cache",
+                  "value": "MISS",
+                  "name": "X-Cache",
+                  "description": ""
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "40",
+                  "name": "X-RateLimit-Limit",
+                  "description": ""
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "38",
+                  "name": "X-RateLimit-Remaining",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": "175",
+              "body": "{\n  \"date\": \"2017-03-31\",\n  \"explanation\": \"Get out your red/cyan glasses and gaze across the surface of Churyumov-Gerasimenko, aka Comet 67P. The stereo anaglyph was created by combining two images from the Rosetta spacecraft's narrow angle OSIRIS camera taken on September 22, 2014. Stark and jagged, the 3D landscape is found along the Seth region of the comet's double-lobed nucleus. It spans about 985 x 820 meters, pocked by circular ridges, depressions, and flattened areas strewn with boulders and debris. The large steep-walled circular pit in the foreground is 180 meters in diameter. Rosetta's mission to the comet ended in September 2016 when the spacecraft was commanded to a controlled impact with the comet's surface.\",\n  \"hdurl\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"3D 67P\",\n  \"url\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth1024c.jpg\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "7af771d1-4806-6cbe-aca9-468ae581d03d",
+          "name": "Upload image to Imgur via OAuth 2.0",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "// it might be useful to hang on to the photo's id on Imgur. We can do that by parsing the response object, and setting an environment variable to access in subsequent requests. ",
+                  "",
+                  "if (responseCode.code === 200) {",
+                  "    ",
+                  "    try {",
+                  "        var result = JSON.parse(responseBody);",
+                  "        var id = result.data.id;",
+                  "    }",
+                  "    ",
+                  "    catch(e) {",
+                  "        console.log(e);",
+                  "    }",
+                  "    ",
+                  "    postman.setEnvironmentVariable(\"imgurId\", id);",
+                  "    ",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "https://api.imgur.com/3/upload",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "value": "{{spaceUrl}}",
+                  "type": "text"
+                },
+                {
+                  "key": "title",
+                  "value": "{{spaceTitle}}",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "{{spaceExplanation}} ....... beep boop .... Here's the Astronomy picture of the day from NASA, posted using Postman: https://documenter.getpostman.com/view/1559979/space-to-imgur/6YsWHS2",
+                  "type": "text"
+                }
+              ]
+            },
+            "description": "Upload an image under your Imgur account via OAuth 2.0\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints). If you don't already have one, create an Imgur account, and register an application.\n\nThis is essentially the same request as the previous one to upload an image anonymously to Imgur, except we will authorize our request using an Oauth 2.0 access token.\n\nUnder the Postman **Authorization** tab, select `OAuth 2.0` from the dropdown. Click the `Get New Access Token` button to request your token.\n- Token Name: <any-token-name-that-you-want>\n- Auth URL: `https://api.imgur.com/oauth2/authorize`\n- Access Token URL: `https://api.imgur.com/oauth2/token`\n- Client ID: <your-app's-client-ID-from-Imgur>\n- Client Secret: <generate-new-secret-for-your-app-from-Imgur>\n- Grant Type: `Authorization Code`\n\nStill under the Postman **Authorization** tab, select your new token's name and verify `Add token to` is set to `Header`. Copy the `access_token` value and save it as a new environment variable (e.g. `accessToken`) by clicking the eyeball in the upper right corner of the Postman app.\n\nNote: if you share your Postman environment template with another person, they will have access to your `access_token` unless create a shareable environment template stripped of the `access_token` value.\n\nUnder the Postman **Headers** tab, replace the `Authorization` value with `Bearer {{<your-environment-variable-name>}}`.\n\nLastly, if I want to do some other things with this uploaded image, it might be useful for me to hold on to the photo's id on Imgur. Do you remember how to do that? Check out the comments under the Postman **Tests** tab for a hint."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "cfa12e22-05e6-3400-e254-e2f5014b561c",
+          "name": "Share image with Imgur community",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "if (responseCode.code === 200) {",
+                  "    // the setNextRequest() method is typically used to indicate the subsequent request to run. You can also use this method to stop workflow execution with a null parameter.",
+                  "    postman.setNextRequest(null);",
+                  "}",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "https://api.imgur.com/3/gallery/image/{{imgurId}}",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "type": "text",
+                  "value": "{{spaceTitle}}"
+                }
+              ]
+            },
+            "description": "Share an image with the Imgur community via OAuth 2.0.\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints). If you don't already have one, create an Imgur account, and register an application.\n\nWe will be using the [share with community endpoint](https://api.imgur.com/endpoints/gallery#to-gallery) from Imgur.\n\n- In the Postman request builder, select the `POST` method from the dropdown, and enter the `https://api.imgur.com/3/gallery/image/{{imgurId}}` endpoint in the URL bar, where `imgurId` is the name of your new environment variable created from the response object when you uploaded the photo to Imgur. Once again, we can access the environment variable that we created in the previous request within this collection, by using double curly brackets surrounding the environment variable name (e.g. `{{imgurId}}`).\n- Under the Postman **Headers* tab, we will use the same `{{accessToken}}` that we used in the preceding OAuth 2.0 request.\n- Under the Postman **Body** tab, enter the body parameters that you would like to include in your image upload. For the `title` key, we will use an environment variable created from the response object when you retrieved the initial photo from NASA."
           },
           "response": []
         }
