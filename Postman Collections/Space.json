@@ -830,10 +830,10 @@
                 "exec": [
                   "tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "",
-                  "if (responseCode.code === 200) {",
-                  "    // the setNextRequest() method is typically used to indicate the subsequent request to run. You can also use this method to stop workflow execution with a null parameter.",
-                  "    postman.setNextRequest(null);",
-                  "}",
+                  "// if (responseCode.code === 200) {",
+                  "//     // the setNextRequest() method is typically used to indicate the subsequent request to run. You can also use this method to stop workflow execution with a null parameter.",
+                  "//     postman.setNextRequest(null);",
+                  "// }",
                   ""
                 ]
               }
