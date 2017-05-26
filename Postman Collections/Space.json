@@ -421,6 +421,59 @@
           ]
         },
         {
+          "_postman_id": "d018df1c-0632-2d84-d9d9-790a9973e25d",
+          "name": "Upload image to Imgur copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "if (responseCode.code === 200) {",
+                  "    // the setNextRequest() method accepts a request name or id within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of the next request in the list. You can also use this method to stop workflow execution with a null parameter.",
+                  "    postman.setNextRequest(null);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "https://api.imgur.com/3/upload",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{imgurAccessToken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "text",
+                  "value": "{{spaceUrl}}"
+                },
+                {
+                  "key": "title",
+                  "type": "text",
+                  "value": "{{spaceTitle}}"
+                },
+                {
+                  "key": "description",
+                  "type": "text",
+                  "value": "{{spaceExplanation}}"
+                }
+              ]
+            },
+            "description": "<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgur.png\">\n\nUpload an image to Imgur under your account\n===\n\nUsage of the Imgur API requires registration of your application. Review [documentation for the Imgur API](https://apidocs.imgur.com/). If you don't already have one, create an Imgur account, and [register a new application](https://api.imgur.com/oauth2/addclient).\n\nWe will be using the [image upload endpoint](https://apidocs.imgur.com/#226cd4dd-e8a2-8513-90d2-637c90b3ded5) from Imgur.\n\n- In the Postman request builder, we've selected the `POST` method from the dropdown, and entered the `https://api.imgur.com/3/upload` endpoint in the URL bar.\n- Under the Postman **Headers** tab, we've entered an `Authorization` key with the environment variable of our new access token, accessed via the variable name surrounded by double curly brackets. Running our collection with the corresponding environment template will automatically populate this variable with the value stored in the environment template.\n\n  [![update environment variable](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurAccessToken1.png)](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurAccessToken1.png)\n\n- Under the Postman **Body** tab, we've entered a few body parameters to include in the image upload. For the `image` key, we will use a URL for an image as the value. We can access the environment variable that we created in the previous request within this collection, by once again using double curly brackets surrounding the environment variable name (e.g. `{{spaceUrl}}`).\n\n  [![format imgur parameters](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurAuthBody.png)](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurAuthBody.png)"
+          },
+          "response": []
+        },
+        {
           "_postman_id": "1e15945c-2cde-0d86-2b97-135e9b44995b",
           "name": "Get Imgur auth token",
           "event": [
@@ -536,59 +589,6 @@
               ]
             },
             "description": "Upload an image anonymously to Imgur\n===\n\nUsage of the Imgur API requires registration of your application. Documentation for the Imgur API is available [here](https://api.imgur.com/endpoints). If you don't already have one, create an Imgur account, and register an application.\n\nWe will be using the [image upload endpoint](https://api.imgur.com/endpoints/image#image-upload) from Imgur.\n\n- In the Postman request builder, select the `POST` method from the dropdown, and enter the `https://api.imgur.com/3/upload` endpoint in the URL bar.\n- Under the Postman **Headers** tab, enter an `Authorization` key with the value of `Client-ID <your-client-id-from-imgur>`.\n<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/Screen+Shot+2017-04-18+at+2.26.34+PM_censored.jpg\">\n\n- Under the Postman **Body** tab, enter the body parameters that you would like to include in your image upload. For the `image` key, we will use a URL for an image as the value. We can access the environment variable that we created in the previous request within this collection, by using double curly brackets surrounding the environment variable name (e.g. `{{spaceUrl}}`)."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "d018df1c-0632-2d84-d9d9-790a9973e25d",
-          "name": "Upload image to Imgur copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "if (responseCode.code === 200) {",
-                  "    // the setNextRequest() method accepts a request name or id within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of the next request in the list. You can also use this method to stop workflow execution with a null parameter.",
-                  "    postman.setNextRequest(null);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "https://api.imgur.com/3/upload",
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{imgurAccessToken}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "image",
-                  "type": "text",
-                  "value": "{{spaceUrl}}"
-                },
-                {
-                  "key": "title",
-                  "type": "text",
-                  "value": "{{spaceTitle}}"
-                },
-                {
-                  "key": "description",
-                  "type": "text",
-                  "value": "{{spaceExplanation}}"
-                }
-              ]
-            },
-            "description": "<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgur.png\">\n\nUpload an image to Imgur under your account\n===\n\nUsage of the Imgur API requires registration of your application. Review [documentation for the Imgur API](https://apidocs.imgur.com/). If you don't already have one, create an Imgur account, and [register a new application](https://api.imgur.com/oauth2/addclient).\n\nWe will be using the [image upload endpoint](https://apidocs.imgur.com/#226cd4dd-e8a2-8513-90d2-637c90b3ded5) from Imgur.\n\n- In the Postman request builder, we've selected the `POST` method from the dropdown, and entered the `https://api.imgur.com/3/upload` endpoint in the URL bar.\n- Under the Postman **Headers** tab, we've entered an `Authorization` key with the environment variable of our new access token, accessed via the variable name surrounded by double curly brackets. Running our collection with the corresponding environment template will automatically populate this variable with the value stored in the environment template.\n\n  [![update environment variable](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurAccessToken1.png)](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurAccessToken1.png)\n\n- Under the Postman **Body** tab, we've entered a few body parameters to include in the image upload. For the `image` key, we will use a URL for an image as the value. We can access the environment variable that we created in the previous request within this collection, by once again using double curly brackets surrounding the environment variable name (e.g. `{{spaceUrl}}`).\n\n  [![format imgur parameters](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurAuthBody.png)](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurAuthBody.png)"
           },
           "response": []
         }
