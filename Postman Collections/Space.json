@@ -680,7 +680,7 @@
         },
         {
           "_postman_id": "b4d63b40-19b5-442f-0c45-5eeedcd52d20",
-          "name": "Get Imgur auth token copy",
+          "name": "Get Imgur auth token",
           "event": [
             {
               "listen": "test",
