@@ -14,7 +14,7 @@
       "item": [
         {
           "_postman_id": "a3bed22b-d5bf-5364-c0de-04ab71f4d67b",
-          "name": "Astronomy Picture of the Day",
+          "name": "Astronomy Pic of the Day",
           "event": [
             {
               "listen": "test",
