@@ -189,8 +189,8 @@
       "description": "Post the picture anonymously to Imgur.\n\n<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgur.png\">",
       "item": [
         {
-          "_postman_id": "0aa1c2b4-b753-b638-705f-3062b6eebae4",
-          "name": "Astronomy Picture of the Day",
+          "_postman_id": "dbaecbf6-a86f-1bd6-f8d3-b3777d91c231",
+          "name": "Get the astronomy pic of the day",
           "event": [
             {
               "listen": "test",
@@ -223,10 +223,6 @@
                   "    postman.setEnvironmentVariable(\"spaceUrl\", url);",
                   "",
                   "}",
-                  "",
-                  "// the setNextRequest() method accepts a request name or id within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of the next request in the list. ",
-                  "// postman.setNextRequest(\"Upload image to Imgur ANON\");",
-                  "postman.setNextRequest(\"Message to slack\");",
                   ""
                 ]
               }
@@ -237,96 +233,11 @@
             "method": "GET",
             "header": [],
             "body": {},
-            "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run.\n- The third bit of code controls the workflow sequence and designates which request in the same collection to run next, instead of the next request in the list."
+            "description": "<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/nasa.jpg\" width=\"200px\">\n\nGET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Review [documentation](https://api.nasa.gov/api.html#apod) for the NASA API.\n\nStart in the Postman request builder. \n\n  - Method: Select `GET` from the dropdown menu of HTTP methods.\n\n  - URL: Enter the URL endpoint provided by NASA - `https://api.nasa.gov/planetary/apod`\n\n  - Parameters: This request will work without any additional parameters, and default to using NASA's demo key. However, we can choose to add query string parameters to our request. Click the Params button to reveal a key-value editor. As you input parameters, they are automatically added to the query string in the URL bar above.\n\nUnder the Postman **Tests** tab, we can write scripts in JavaScript to execute any logic after the request is sent. \n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n[![tests tab](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/APODtests.png)](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/APODtests.png)\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON response object, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run.\n- The third bit of code controls the workflow sequence and designates which request in the same collection to run next, instead of the next request in the list.\n\nRead more about [writing tests](https://www.getpostman.com/docs/postman/scripts/test_scripts) and [controlling the workflow](https://www.getpostman.com/docs/postman/collection_runs/building_workflows) in the Postman docs.  \n"
           },
           "response": [
             {
-              "id": "395c671d-90f2-9122-05e8-29078847a765",
-              "name": "examples",
-              "originalRequest": {
-                "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
-                "method": "GET",
-                "header": [],
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "_postman_previewtype": "text",
-              "header": [
-                {
-                  "key": "Age",
-                  "value": "0",
-                  "name": "Age",
-                  "description": ""
-                },
-                {
-                  "key": "Connection",
-                  "value": "keep-alive",
-                  "name": "Connection",
-                  "description": ""
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "954",
-                  "name": "Content-Length",
-                  "description": ""
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "name": "Content-Type",
-                  "description": ""
-                },
-                {
-                  "key": "Date",
-                  "value": "Mon, 15 May 2017 18:55:46 GMT",
-                  "name": "Date",
-                  "description": ""
-                },
-                {
-                  "key": "Server",
-                  "value": "openresty",
-                  "name": "Server",
-                  "description": ""
-                },
-                {
-                  "key": "Strict-Transport-Security",
-                  "value": "max-age=31536000",
-                  "name": "Strict-Transport-Security",
-                  "description": ""
-                },
-                {
-                  "key": "Via",
-                  "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
-                  "name": "Via",
-                  "description": ""
-                },
-                {
-                  "key": "X-Cache",
-                  "value": "MISS",
-                  "name": "X-Cache",
-                  "description": ""
-                },
-                {
-                  "key": "X-RateLimit-Limit",
-                  "value": "40",
-                  "name": "X-RateLimit-Limit",
-                  "description": ""
-                },
-                {
-                  "key": "X-RateLimit-Remaining",
-                  "value": "39",
-                  "name": "X-RateLimit-Remaining",
-                  "description": ""
-                }
-              ],
-              "cookie": [],
-              "responseTime": "1226",
-              "body": "{\n  \"date\": \"2017-05-15\",\n  \"explanation\": \"Watch a huge lightning storm move across the eastern USA. The huge storm caused much damage and unfortunately some loss of life for people in its path. Seen from space, the lightning is seen as momentary flashes in the featured time-lapse video recorded last month by the Geostationary Lightning Mapper (GLM) aboard the GOES-16 satellite. The outline of North America is most evident during the day, while the bright lightning strikes are most evident at night.  Inspection of the video shows that much of the lightning occurred at the leading edge of the huge tail of the swirling storm.  Because lightning frequently precedes a storm's most violent impact, lightning data from GLM holds promise to help reduce the harm to humans from future storms.\",\n  \"media_type\": \"video\",\n  \"service_version\": \"v1\",\n  \"title\": \"Lightning Storm Moves Across the USA\",\n  \"url\": \"https://www.youtube.com/embed/vxJTQuWISbk\"\n}"
-            },
-            {
-              "id": "b651ee43-16ea-e88b-212a-427c18844073",
+              "id": "2cd839b8-4611-acfa-a07f-f629c6508406",
               "name": "200",
               "originalRequest": {
                 "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
@@ -340,64 +251,64 @@
               "_postman_previewtype": "text",
               "header": [
                 {
+                  "description": "",
                   "key": "Age",
-                  "value": "0",
                   "name": "Age",
-                  "description": ""
+                  "value": "0"
                 },
                 {
+                  "description": "",
                   "key": "Connection",
-                  "value": "keep-alive",
                   "name": "Connection",
-                  "description": ""
+                  "value": "keep-alive"
                 },
                 {
+                  "description": "",
                   "key": "Content-Length",
-                  "value": "949",
                   "name": "Content-Length",
-                  "description": ""
+                  "value": "949"
                 },
                 {
+                  "description": "",
                   "key": "Content-Type",
-                  "value": "application/json",
                   "name": "Content-Type",
-                  "description": ""
+                  "value": "application/json"
                 },
                 {
+                  "description": "",
                   "key": "Date",
-                  "value": "Fri, 31 Mar 2017 22:55:44 GMT",
                   "name": "Date",
-                  "description": ""
+                  "value": "Fri, 31 Mar 2017 22:55:44 GMT"
                 },
                 {
+                  "description": "",
                   "key": "Server",
-                  "value": "openresty",
                   "name": "Server",
-                  "description": ""
+                  "value": "openresty"
                 },
                 {
+                  "description": "",
                   "key": "Via",
-                  "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
                   "name": "Via",
-                  "description": ""
+                  "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])"
                 },
                 {
+                  "description": "",
                   "key": "X-Cache",
-                  "value": "MISS",
                   "name": "X-Cache",
-                  "description": ""
+                  "value": "MISS"
                 },
                 {
+                  "description": "",
                   "key": "X-RateLimit-Limit",
-                  "value": "40",
                   "name": "X-RateLimit-Limit",
-                  "description": ""
+                  "value": "40"
                 },
                 {
+                  "description": "",
                   "key": "X-RateLimit-Remaining",
-                  "value": "38",
                   "name": "X-RateLimit-Remaining",
-                  "description": ""
+                  "value": "38"
                 }
               ],
               "cookie": [],
@@ -405,7 +316,7 @@
               "body": "{\n  \"date\": \"2017-03-31\",\n  \"explanation\": \"Get out your red/cyan glasses and gaze across the surface of Churyumov-Gerasimenko, aka Comet 67P. The stereo anaglyph was created by combining two images from the Rosetta spacecraft's narrow angle OSIRIS camera taken on September 22, 2014. Stark and jagged, the 3D landscape is found along the Seth region of the comet's double-lobed nucleus. It spans about 985 x 820 meters, pocked by circular ridges, depressions, and flattened areas strewn with boulders and debris. The large steep-walled circular pit in the foreground is 180 meters in diameter. Rosetta's mission to the comet ended in September 2016 when the spacecraft was commanded to a controlled impact with the comet's surface.\",\n  \"hdurl\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"3D 67P\",\n  \"url\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth1024c.jpg\"\n}"
             },
             {
-              "id": "fdfab525-afbc-bf39-6df3-52a250c87f6c",
+              "id": "cb7c98b9-02c6-ea38-9d3b-747ba594be6e",
               "name": "200 success",
               "originalRequest": {
                 "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
@@ -419,88 +330,88 @@
               "_postman_previewtype": "text",
               "header": [
                 {
+                  "description": "",
                   "key": "Age",
-                  "value": "0",
                   "name": "Age",
-                  "description": ""
+                  "value": "0"
                 },
                 {
+                  "description": "",
                   "key": "Connection",
-                  "value": "keep-alive",
                   "name": "Connection",
-                  "description": ""
+                  "value": "keep-alive"
                 },
                 {
+                  "description": "",
                   "key": "Content-Encoding",
-                  "value": "gzip",
                   "name": "Content-Encoding",
-                  "description": ""
+                  "value": "gzip"
                 },
                 {
+                  "description": "",
                   "key": "Content-Length",
-                  "value": "642",
                   "name": "Content-Length",
-                  "description": ""
+                  "value": "642"
                 },
                 {
+                  "description": "",
                   "key": "Content-Type",
-                  "value": "application/json",
                   "name": "Content-Type",
-                  "description": ""
+                  "value": "application/json"
                 },
                 {
+                  "description": "",
                   "key": "Date",
-                  "value": "Thu, 13 Apr 2017 21:46:19 GMT",
                   "name": "Date",
-                  "description": ""
+                  "value": "Thu, 13 Apr 2017 21:46:19 GMT"
                 },
                 {
+                  "description": "",
                   "key": "Server",
-                  "value": "openresty",
                   "name": "Server",
-                  "description": ""
+                  "value": "openresty"
                 },
                 {
+                  "description": "",
                   "key": "Strict-Transport-Security",
-                  "value": "max-age=31536000",
                   "name": "Strict-Transport-Security",
-                  "description": ""
+                  "value": "max-age=31536000"
                 },
                 {
+                  "description": "",
                   "key": "Vary",
-                  "value": "Accept-Encoding",
                   "name": "Vary",
-                  "description": ""
+                  "value": "Accept-Encoding"
                 },
                 {
+                  "description": "",
                   "key": "Vary",
-                  "value": "Accept-Encoding",
                   "name": "Vary",
-                  "description": ""
+                  "value": "Accept-Encoding"
                 },
                 {
+                  "description": "",
                   "key": "Via",
-                  "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
                   "name": "Via",
-                  "description": ""
+                  "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])"
                 },
                 {
+                  "description": "",
                   "key": "X-Cache",
-                  "value": "MISS",
                   "name": "X-Cache",
-                  "description": ""
+                  "value": "MISS"
                 },
                 {
+                  "description": "",
                   "key": "X-RateLimit-Limit",
-                  "value": "40",
                   "name": "X-RateLimit-Limit",
-                  "description": ""
+                  "value": "40"
                 },
                 {
+                  "description": "",
                   "key": "X-RateLimit-Remaining",
-                  "value": "39",
                   "name": "X-RateLimit-Remaining",
-                  "description": ""
+                  "value": "39"
                 }
               ],
               "cookie": [],
@@ -508,6 +419,59 @@
               "body": "{\n  \"copyright\": \"G\\u00f6ran Strand\",\n  \"date\": \"2017-04-13\",\n  \"explanation\": \"On April 10, a Full Moon and Jupiter shared this telephoto field of view. Both were near opposition, opposite the Sun in Earth's night sky. Captured when a passing cloud bank dimmmed the bright moonlight, the single exposure reveals the familiar face of our fair planet's own large natural satellite, along with a line up of the ruling gas giant's four Galilean moons. Labeled top to bottom, the tiny pinpricks of light above bright Jupiter are Callisto, Europa, Ganymede, and Io. Closer and brighter, our own natural satellite appears to loom large. But Callisto, Ganymede, and Io are physically larger than Earth's Moon, while water world Europa is only slightly smaller.  In fact, of the Solar System's six largest planetary satellites, only Saturn's moon Titan is missing from the scene.\",\n  \"hdurl\": \"https://apod.nasa.gov/apod/image/1704/GS_20170410_MoonJupiter_7435.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"Moons and Jupiter\",\n  \"url\": \"https://apod.nasa.gov/apod/image/1704/GS_20170410_MoonJupiter_7435px1024.jpg\"\n}"
             }
           ]
+        },
+        {
+          "_postman_id": "d018df1c-0632-2d84-d9d9-790a9973e25d",
+          "name": "Upload image to Imgur",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "if (responseCode.code === 200) {",
+                  "    // the setNextRequest() method accepts a request name or id within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of the next request in the list. You can also use this method to stop workflow execution with a null parameter.",
+                  "    postman.setNextRequest(null);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "https://api.imgur.com/3/upload",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{imgurAccessToken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "text",
+                  "value": "{{spaceUrl}}"
+                },
+                {
+                  "key": "title",
+                  "type": "text",
+                  "value": "{{spaceTitle}}"
+                },
+                {
+                  "key": "description",
+                  "type": "text",
+                  "value": "{{spaceExplanation}}"
+                }
+              ]
+            },
+            "description": "<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgur.png\">\n\nUpload an image to Imgur under your account\n===\n\nUsage of the Imgur API requires registration of your application. Review [documentation for the Imgur API](https://apidocs.imgur.com/). If you don't already have one, create an Imgur account, and [register a new application](https://api.imgur.com/oauth2/addclient).\n\nWe will be using the [image upload endpoint](https://apidocs.imgur.com/#226cd4dd-e8a2-8513-90d2-637c90b3ded5) from Imgur.\n\n- In the Postman request builder, we've selected the `POST` method from the dropdown, and entered the `https://api.imgur.com/3/upload` endpoint in the URL bar.\n- Under the Postman **Headers** tab, we've entered an `Authorization` key with the environment variable of our new access token, accessed via the variable name surrounded by double curly brackets. Running our collection with the corresponding environment template will automatically populate this variable with the value stored in the environment template.\n\n  [![update environment variable](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurAccessToken1.png)](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurAccessToken1.png)\n\n- Under the Postman **Body** tab, we've entered a few body parameters to include in the image upload. For the `image` key, we will use a URL for an image as the value. We can access the environment variable that we created in the previous request within this collection, by once again using double curly brackets surrounding the environment variable name (e.g. `{{spaceUrl}}`).\n\n  [![format imgur parameters](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurAuthBody.png)](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgurAuthBody.png)"
+          },
+          "response": []
         },
         {
           "_postman_id": "1e15945c-2cde-0d86-2b97-135e9b44995b",
