@@ -800,7 +800,7 @@
                 },
                 {
                   "key": "description",
-                  "value": "{{spaceExplanation}} ....... beep boop .... Here's the Astronomy picture of the day from NASA, posted using Postman: https://documenter.getpostman.com/view/1559979/space-to-imgur/6YsWHS2",
+                  "value": "{{spaceExplanation}} ....... beep boop .... Here's the Astronomy picture of the day from NASA, posted using Postman: https://documenter.getpostman.com/view/1559979/space-v1/6YwzFwT",
                   "type": "text"
                 }
               ]
