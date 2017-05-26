@@ -226,6 +226,15 @@
                   ""
                 ]
               }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "postman.setNextRequset('Astronomy Picture of the Day');"
+                ]
+              }
             }
           ],
           "request": {
