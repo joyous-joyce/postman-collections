@@ -362,224 +362,6 @@
       ]
     },
     {
-      "_postman_id": "504696c0-d215-347e-f514-d98504c55be8",
-      "name": "Space to Slack",
-      "description": "Post the picture to Slack using an incoming webhook. Set up a Postman monitor to schedule a run on a regular basis.\n\n<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/slack.png\">",
-      "item": [
-        {
-          "_postman_id": "a3bed22b-d5bf-5364-c0de-04ab71f4d67b",
-          "name": "Astronomy Pic of the Day",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "// for commonly used tests, click on the snippets to the right for starter code. Any modifications or custom scripts can be written in JavaScript.",
-                  "",
-                  "// this first test ensures a successful 200 response status code",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "// this second block of code will parse the response object and set environment variables",
-                  "if (responseCode.code === 200) {",
-                  "    ",
-                  "    try {",
-                  "        // parse the JSON response object to access title, explanation, and hdurl",
-                  "        var result = JSON.parse(responseBody);",
-                  "        var title = result.title;",
-                  "        var explanation = result.explanation;",
-                  "        var url = result.hdurl;",
-                  "    }",
-                  "    ",
-                  "    catch(e) {",
-                  "        console.log(e);",
-                  "    }",
-                  "    ",
-                  "    // the setEnvironmentVariable() method accepts a variable name and value as parameters. Use this method to establish environment variables that can be accessed in subsequent requests when the entire collection is run along with the corresponding environment template.",
-                  "    postman.setEnvironmentVariable(\"spaceTitle\", title);",
-                  "    postman.setEnvironmentVariable(\"spaceExplanation\", explanation);",
-                  "    postman.setEnvironmentVariable(\"spaceUrl\", url);",
-                  "",
-                  "}",
-                  "",
-                  "// the setNextRequest() method accepts a request name or id within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of the next request in the list. ",
-                  "postman.setNextRequest(\"Message to slack\");",
-                  ""
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {},
-            "url": {
-              "raw": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
-              "protocol": "https",
-              "host": [
-                "api",
-                "nasa",
-                "gov"
-              ],
-              "path": [
-                "planetary",
-                "apod"
-              ],
-              "query": [
-                {
-                  "key": "api_key",
-                  "value": "DEMO_KEY"
-                },
-                {
-                  "key": "hd",
-                  "value": "True"
-                }
-              ]
-            },
-            "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run."
-          },
-          "response": [
-            {
-              "id": "b7349259-7d18-e0bc-8752-244737fdfad9",
-              "name": "200",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "body": {},
-                "url": {
-                  "raw": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
-                  "protocol": "https",
-                  "host": [
-                    "api",
-                    "nasa",
-                    "gov"
-                  ],
-                  "path": [
-                    "planetary",
-                    "apod"
-                  ],
-                  "query": [
-                    {
-                      "key": "api_key",
-                      "value": "DEMO_KEY"
-                    },
-                    {
-                      "key": "hd",
-                      "value": "True"
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Age",
-                  "value": "0",
-                  "name": "Age",
-                  "description": ""
-                },
-                {
-                  "key": "Connection",
-                  "value": "keep-alive",
-                  "name": "Connection",
-                  "description": ""
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "949",
-                  "name": "Content-Length",
-                  "description": ""
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "name": "Content-Type",
-                  "description": ""
-                },
-                {
-                  "key": "Date",
-                  "value": "Fri, 31 Mar 2017 22:55:44 GMT",
-                  "name": "Date",
-                  "description": ""
-                },
-                {
-                  "key": "Server",
-                  "value": "openresty",
-                  "name": "Server",
-                  "description": ""
-                },
-                {
-                  "key": "Via",
-                  "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
-                  "name": "Via",
-                  "description": ""
-                },
-                {
-                  "key": "X-Cache",
-                  "value": "MISS",
-                  "name": "X-Cache",
-                  "description": ""
-                },
-                {
-                  "key": "X-RateLimit-Limit",
-                  "value": "40",
-                  "name": "X-RateLimit-Limit",
-                  "description": ""
-                },
-                {
-                  "key": "X-RateLimit-Remaining",
-                  "value": "38",
-                  "name": "X-RateLimit-Remaining",
-                  "description": ""
-                }
-              ],
-              "cookie": [],
-              "responseTime": "175",
-              "body": "{\n  \"date\": \"2017-03-31\",\n  \"explanation\": \"Get out your red/cyan glasses and gaze across the surface of Churyumov-Gerasimenko, aka Comet 67P. The stereo anaglyph was created by combining two images from the Rosetta spacecraft's narrow angle OSIRIS camera taken on September 22, 2014. Stark and jagged, the 3D landscape is found along the Seth region of the comet's double-lobed nucleus. It spans about 985 x 820 meters, pocked by circular ridges, depressions, and flattened areas strewn with boulders and debris. The large steep-walled circular pit in the foreground is 180 meters in diameter. Rosetta's mission to the comet ended in September 2016 when the spacecraft was commanded to a controlled impact with the comet's surface.\",\n  \"hdurl\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"3D 67P\",\n  \"url\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth1024c.jpg\"\n}"
-            }
-          ]
-        },
-        {
-          "_postman_id": "3b94419f-9530-225f-a5fb-25ea6673fa75",
-          "name": "Message to slack",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "// if (responseCode.code === 200) {",
-                  "//     // the setNextRequest() method is typically used to indicate the subsequent request to run. You can also use this method to stop workflow execution with a null parameter.",
-                  "//     postman.setNextRequest(null);",
-                  "// }"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/x-www-form-urlencoded"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"username\": \"Astronomy Picture of the Day\",\n  \"icon_emoji\": \":space_invader:\",\n  \n  \"attachments\": [\n        {\n            \"fallback\": \"{{spaceTitle}}\",\n            \"title\": \"{{spaceTitle}}\",\n            \"text\": \"{{spaceExplanation}}\",\n            \"color\": \"#7CD197\",\n            \"thumb_url\": \"{{spaceUrl}}\",\n            \"image_url\": \"{{spaceUrl}}\"\n        }\n    ]\n}"
-            },
-            "url": "https://hooks.slack.com/services/{{slack}}",
-            "description": "POST an image to Slack\n===\n\nUse a custom [Slack webhook](\"https://api.slack.com/incoming-webhooks\"). Add an environment that includes an entry with the key `slack` and a value of the remainder of your Slack Webhook URL.\n\nUnder the **Body** tab, we can include elements for our Slack message by accessing our environmental variables that we set during the previous GET request."
-          },
-          "response": []
-        }
-      ]
-    },
-    {
       "_postman_id": "e3108187-6261-01da-8f12-bedc908a9916",
       "name": "Space to Imgur",
       "description": "Post the picture anonymously to Imgur.\n\n<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/imgur.png\">",
@@ -1131,6 +913,224 @@
               "body": "{\n  \"copyright\": \"Daniel Verschatse\",\n  \"date\": \"2017-05-26\",\n  \"explanation\": \"Big, beautiful spiral galaxy NGC 6744 is nearly 175,000 light-years across, larger than our own Milky Way. It lies some 30 million light-years distant in the southern constellation Pavo appearing as a faint, extended object in small telescopes. We see the disk of the nearby island universe tilted towards our line of sight. This remarkably distinct and detailed galaxy portrait covers an area about the angular size of the full moon. In it, the giant galaxy's yellowish core is dominated by the light from old, cool stars. Beyond the core, spiral arms filled with young blue star clusters and pinkish star forming regions sweep past a smaller satellite galaxy at the lower left, reminiscent of the Milky Way's satellite galaxy the Large Magellanic Cloud.\",\n  \"hdurl\": \"https://apod.nasa.gov/apod/image/1705/ngc6744-maximumVerschatse.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"Spiral Galaxy NGC 6744\",\n  \"url\": \"https://apod.nasa.gov/apod/image/1705/ngc6744-1024Verschatse.jpg\"\n}"
             }
           ]
+        }
+      ]
+    },
+    {
+      "_postman_id": "504696c0-d215-347e-f514-d98504c55be8",
+      "name": "Space to Slack",
+      "description": "Post the picture to Slack using an incoming webhook. Set up a Postman monitor to schedule a run on a regular basis.\n\n<img src=\"https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/slack.png\">",
+      "item": [
+        {
+          "_postman_id": "a3bed22b-d5bf-5364-c0de-04ab71f4d67b",
+          "name": "Astronomy Pic of the Day",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// for commonly used tests, click on the snippets to the right for starter code. Any modifications or custom scripts can be written in JavaScript.",
+                  "",
+                  "// this first test ensures a successful 200 response status code",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "// this second block of code will parse the response object and set environment variables",
+                  "if (responseCode.code === 200) {",
+                  "    ",
+                  "    try {",
+                  "        // parse the JSON response object to access title, explanation, and hdurl",
+                  "        var result = JSON.parse(responseBody);",
+                  "        var title = result.title;",
+                  "        var explanation = result.explanation;",
+                  "        var url = result.hdurl;",
+                  "    }",
+                  "    ",
+                  "    catch(e) {",
+                  "        console.log(e);",
+                  "    }",
+                  "    ",
+                  "    // the setEnvironmentVariable() method accepts a variable name and value as parameters. Use this method to establish environment variables that can be accessed in subsequent requests when the entire collection is run along with the corresponding environment template.",
+                  "    postman.setEnvironmentVariable(\"spaceTitle\", title);",
+                  "    postman.setEnvironmentVariable(\"spaceExplanation\", explanation);",
+                  "    postman.setEnvironmentVariable(\"spaceUrl\", url);",
+                  "",
+                  "}",
+                  "",
+                  "// the setNextRequest() method accepts a request name or id within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of the next request in the list. ",
+                  "postman.setNextRequest(\"Message to slack\");",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": {
+              "raw": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
+              "protocol": "https",
+              "host": [
+                "api",
+                "nasa",
+                "gov"
+              ],
+              "path": [
+                "planetary",
+                "apod"
+              ],
+              "query": [
+                {
+                  "key": "api_key",
+                  "value": "DEMO_KEY"
+                },
+                {
+                  "key": "hd",
+                  "value": "True"
+                }
+              ]
+            },
+            "description": "GET request for Astronomy Picture of the Day from NASA\n===\n\nSending this request will return a picture posted by NASA. Documentation for the NASA API is available [here](https://api.nasa.gov/api.html#apod).\n\nPostman tests are a good way to ensure that you're getting the correct, anticipated responses from your requests. You can include custom scripts to execute additional logic too.\n\n- Under the Postman **Tests** tab, the first test ensures a successful 200 response status code.  \n- The second test will parse the JSON object response, and set environment variables (title, URL, etc.) that can be accessed in subsequent requests when the entire collection is run."
+          },
+          "response": [
+            {
+              "id": "b7349259-7d18-e0bc-8752-244737fdfad9",
+              "name": "200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {},
+                "url": {
+                  "raw": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&hd=True",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "nasa",
+                    "gov"
+                  ],
+                  "path": [
+                    "planetary",
+                    "apod"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "DEMO_KEY"
+                    },
+                    {
+                      "key": "hd",
+                      "value": "True"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Age",
+                  "value": "0",
+                  "name": "Age",
+                  "description": ""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "949",
+                  "name": "Content-Length",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "name": "Content-Type",
+                  "description": ""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 31 Mar 2017 22:55:44 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
+                {
+                  "key": "Server",
+                  "value": "openresty",
+                  "name": "Server",
+                  "description": ""
+                },
+                {
+                  "key": "Via",
+                  "value": "1.1 vegur, http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                  "name": "Via",
+                  "description": ""
+                },
+                {
+                  "key": "X-Cache",
+                  "value": "MISS",
+                  "name": "X-Cache",
+                  "description": ""
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "40",
+                  "name": "X-RateLimit-Limit",
+                  "description": ""
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "38",
+                  "name": "X-RateLimit-Remaining",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": "175",
+              "body": "{\n  \"date\": \"2017-03-31\",\n  \"explanation\": \"Get out your red/cyan glasses and gaze across the surface of Churyumov-Gerasimenko, aka Comet 67P. The stereo anaglyph was created by combining two images from the Rosetta spacecraft's narrow angle OSIRIS camera taken on September 22, 2014. Stark and jagged, the 3D landscape is found along the Seth region of the comet's double-lobed nucleus. It spans about 985 x 820 meters, pocked by circular ridges, depressions, and flattened areas strewn with boulders and debris. The large steep-walled circular pit in the foreground is 180 meters in diameter. Rosetta's mission to the comet ended in September 2016 when the spacecraft was commanded to a controlled impact with the comet's surface.\",\n  \"hdurl\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth.jpg\",\n  \"media_type\": \"image\",\n  \"service_version\": \"v1\",\n  \"title\": \"3D 67P\",\n  \"url\": \"http://apod.nasa.gov/apod/image/1703/APOD-67P-Seth1024c.jpg\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "3b94419f-9530-225f-a5fb-25ea6673fa75",
+          "name": "Message to slack",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "// if (responseCode.code === 200) {",
+                  "//     // the setNextRequest() method is typically used to indicate the subsequent request to run. You can also use this method to stop workflow execution with a null parameter.",
+                  "//     postman.setNextRequest(null);",
+                  "// }"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"Astronomy Picture of the Day\",\n  \"icon_emoji\": \":space_invader:\",\n  \n  \"attachments\": [\n        {\n            \"fallback\": \"{{spaceTitle}}\",\n            \"title\": \"{{spaceTitle}}\",\n            \"text\": \"{{spaceExplanation}}\",\n            \"color\": \"#7CD197\",\n            \"thumb_url\": \"{{spaceUrl}}\",\n            \"image_url\": \"{{spaceUrl}}\"\n        }\n    ]\n}"
+            },
+            "url": "https://hooks.slack.com/services/{{slack}}",
+            "description": "POST an image to Slack\n===\n\nUse a custom [Slack webhook](\"https://api.slack.com/incoming-webhooks\"). Add an environment that includes an entry with the key `slack` and a value of the remainder of your Slack Webhook URL.\n\nUnder the **Body** tab, we can include elements for our Slack message by accessing our environmental variables that we set during the previous GET request."
+          },
+          "response": []
         }
       ]
     },
